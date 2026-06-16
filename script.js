@@ -46,7 +46,7 @@ const CANALES_DATOS = [
     "categoria": "Recomendadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/TuEnlaceAqui",
+    "enlace": "https://t.me/+wzHIWcfdn5k0YTUx",
     "popular": false
   },
   {
@@ -302,7 +302,7 @@ const CANALES_DATOS = [
   {
     "id": 31,
     "nombre": "Yanny Fonseca",
-    "descripcion": "Canal exclusivo de Yanny Fonseca. Todo el contenido estructurado en alta velocidad.",
+    "descripcion": "Canal exclusivo de Yanny Fonseca. Todo el contenido structured en alta velocidad.",
     "categoria": "Recomendadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
@@ -546,13 +546,36 @@ function construirTarjetasVisuales(listaCanales) {
                 </div>
                 <h2 class="titulo-canal">${canal.nombre}</h2>
                 <p class="desc-canal">${canal.descripcion}</p>
-                <a href="${canal.enlace}" target="_blank" rel="noopener noreferrer" class="btn-entrar-telegram">
+                <button class="btn-entrar-telegram" onclick="abrirCanalSeguro('${canal.enlace}')">
                     <i data-lucide="send"></i> Entrar al Canal
-                </a>
+                </button>
             </div>
         `;
         gridCanales.appendChild(tarjetaHtml);
     });
     
     lucide.createIcons();
+}
+
+// Función Premium de redirección segura para enlaces privados con "+"
+function abrirCanalSeguro(enlace) {
+    if (enlace.includes('+')) {
+        // Extrae el código después del "+"
+        const partes = enlace.split('+');
+        const codigoInvitacion = partes[partes.length - 1];
+        
+        // Crea el enlace de protocolo directo que fuerza a la app de Telegram a procesar la invitación privada
+        const enlaceForzado = `tg://join?invite=${codigoInvitacion}`;
+        
+        // Intenta abrir la app directamente
+        window.location.href = enlaceForzado;
+        
+        // Respaldo por si el usuario está en PC sin app instalada (abre la web oficial de invitaciones)
+        setTimeout(() => {
+            window.open(`https://t.me/joinchat/${codigoInvitacion}`, '_blank');
+        }, 500);
+    } else {
+        // Enlaces públicos normales
+        window.open(enlace, '_blank');
+    }
 }
