@@ -11,36 +11,86 @@ const CANALES_DATOS = [
   },
   {
     "id": 2,
+    "nombre": "Kensy Solis",
+    "descripcion": "Canal verificado oficial de Kensy Solis. Únete al grupo con las publicaciones exclusivas.",
+    "categoria": "Mas Buscadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://lh3.googleusercontent.com/d/1CHWs_2JZICXvnYMg8kozn4PFdR8e0Q3b",
+    "enlace": "https://t.me/+rtSZIUKSkVBlNzIx",
+    "popular": true
+  },
+  {
+    "id": 3,
+    "nombre": "Valeria Aguilar",
+    "descripcion": "Comunidad privada oficial de Valeria Aguilar en Telegram. Todo el contenido en alta calidad.",
+    "categoria": "Recomendadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://lh3.googleusercontent.com/d/1NwgfTAi0IvHpOqKSgpMFre9T_RfTB-Y3",
+    "enlace": "https://t.me/+A0xn0NVjVuRjNjYx",
+    "popular": true
+  },
+  {
+    "id": 4,
+    "nombre": "Desire Diaz",
+    "descripcion": "Canal premium exclusivo verificado de Desire Diaz. El espacio oficial con novedades constantes.",
+    "categoria": "Mas Visitadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://lh3.googleusercontent.com/d/1B1-jKbJcO-9jvzU6_yEUrXiBhK0k3908",
+    "enlace": "https://t.me/+MmIkwb1PoMk0Nzgx",
+    "popular": true
+  },
+  {
+    "id": 5,
+    "nombre": "Step Reyes",
+    "descripcion": "Grupo oficial de Step Reyes. Espacio VIP activo con actualizaciones diarias en alta velocidad.",
+    "categoria": "Populares",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://lh3.googleusercontent.com/d/1J6yXiUwuRxJWkNTk3cNp2VuMVqf1PpvE",
+    "enlace": "https://t.me/+H_am9c5lam00ZDgx",
+    "popular": true
+  },
+  {
+    "id": 6,
+    "nombre": "La Niche",
+    "descripcion": "Únete para conocer las últimas publicaciones dentro de la comunidad oficial de La Niche.",
+    "categoria": "Mas Buscadas",
+    "pais": "HONDUREÑAS",
+    "imagen": "https://lh3.googleusercontent.com/d/1Pm-35B2KPfvdonKcCuYqdnQ9naI74kJ0",
+    "enlace": "https://t.me/+SrhaczXTjJs2ZmFh",
+    "popular": true
+  },
+  {
+    "id": 7,
     "nombre": "VIP",
     "descripcion": "El canal exclusivo con el mejor contenido seleccionado diariamente por expertos. Actualizaciones constantes en alta velocidad.",
     "categoria": "Populares",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=600&auto=format&fit=crop",
     "enlace": "https://t.me/TuEnlaceAqui",
-    "popular": true
+    "popular": false
   },
   {
-    "id": 3,
+    "id": 8,
     "nombre": "Marry Guerra",
     "descripcion": "Accede al canal oficial de Marry Guerra. Actualizaciones exclusivas, fotos y contenido verificado todos los días.",
     "categoria": "Populares",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
     "enlace": "https://t.me/+fo_lHhph4iRmYzMx",
-    "popular": true
+    "popular": false
   },
   {
-    "id": 4,
+    "id": 9,
     "nombre": "Katherin Cota",
     "descripcion": "Comunidad VIP de Katherin Cota. Conéctate directamente para no perderte ninguna de sus nuevas actualizaciones y publicaciones.",
     "categoria": "Mas Buscadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
     "enlace": "https://t.me/TuEnlaceAqui",
-    "popular": true
+    "popular": false
   },
   {
-    "id": 5,
+    "id": 10,
     "nombre": "Angie Alvarado",
     "descripcion": "Canal premium de Angie Alvarado. Espacio dedicado con el contenido más nuevo y exclusivo de la comunidad.",
     "categoria": "Mas Visitadas",
@@ -50,7 +100,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 6,
+    "id": 11,
     "nombre": "Aline Fonseca",
     "descripcion": "Únete al grupo exclusivo de Aline Fonseca. Actualizaciones garantizadas en alta velocidad y dinámicas activas.",
     "categoria": "Recomendadas",
@@ -60,7 +110,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 7,
+    "id": 12,
     "nombre": "Kari",
     "descripcion": "Espacio de interacción masiva con dinámicas, contenido exclusivo y actualizaciones en tiempo real de Kari.",
     "categoria": "Mas Buscadas",
@@ -70,7 +120,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 8,
+    "id": 13,
     "nombre": "Ximena Alcala",
     "descripcion": "Directorio oficial y acceso al canal principal de Ximena Alcala. Comunidad premium activa.",
     "categoria": "Recomendadas",
@@ -80,7 +130,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 9,
+    "id": 14,
     "nombre": "Lizeth Rodriguez",
     "descripcion": "Únete para conocer todo el contenido verificado de Lizeth Rodriguez. Acceso premium inmediato.",
     "categoria": "Mas Visitadas",
@@ -90,7 +140,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 10,
+    "id": 15,
     "nombre": "Dany Villalobos",
     "descripcion": "Canal dedicado a Dany Villalobos. Actualizaciones completas y acceso directo a su comunidad privada.",
     "categoria": "Populares",
@@ -100,7 +150,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 11,
+    "id": 16,
     "nombre": "Soy Loruga",
     "descripcion": "El espacio exclusivo de Soy Loruga en Telegram. Todo el contenido oficial verificado aquí.",
     "categoria": "Mas Buscadas",
@@ -110,7 +160,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 12,
+    "id": 17,
     "nombre": "Oruga HN",
     "descripcion": "Canal oficial premium de Oruga HN. Las mejores actualizaciones diarias recopiladas en un solo lugar.",
     "categoria": "Recomendadas",
@@ -120,7 +170,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 13,
+    "id": 18,
     "nombre": "Soy la Oruga",
     "descripcion": "Espacio de interacción premium y actualizaciones garantizadas directas de Soy la Oruga.",
     "categoria": "Mas Visitadas",
@@ -130,7 +180,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 14,
+    "id": 19,
     "nombre": "Stefani Cruz",
     "descripcion": "Comunidad VIP de Stefani Cruz. Acceso al listado de publicaciones y contenido de alta retención.",
     "categoria": "Populares",
@@ -140,7 +190,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 15,
+    "id": 20,
     "nombre": "Stefy",
     "descripcion": "Acceso verificado al canal de Stefy. Todo el contenido y las últimas novedades en tiempo real.",
     "categoria": "Mas Buscadas",
@@ -150,7 +200,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 16,
+    "id": 21,
     "nombre": "Sarca biker",
     "descripcion": "Comunidad oficial de Sarca biker. Conéctate directamente con el canal más activo y exclusivo.",
     "categoria": "Recomendadas",
@@ -160,7 +210,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 17,
+    "id": 22,
     "nombre": "Dary Castañeda",
     "descripcion": "Canal oficial verificado de Dary Castañeda. Espacio premium con las actualizaciones más solicitadas.",
     "categoria": "Mas Visitadas",
@@ -170,7 +220,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 18,
+    "id": 23,
     "nombre": "Mis Enlaces - Soy La Oruga",
     "descripcion": "El concentrador premium de accesos y redes oficiales directas de Soy La Oruga.",
     "categoria": "Populares",
@@ -180,17 +230,17 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 19,
+    "id": 24,
     "nombre": "Abigail Mancia",
     "descripcion": "Acceso exclusivo a la comunidad oficial de Abigail Mancia. Contenido premium verificado diariamente.",
     "categoria": "Mas Buscadas",
     "pais": "SALVADOREÑAS",
     "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
     "enlace": "https://t.me/TuEnlaceAqui",
-    "popular": true
+    "popular": false
   },
   {
-    "id": 20,
+    "id": 25,
     "nombre": "Misaela Castejon",
     "descripcion": "Únete al canal premium de Misaela Castejon para no perderte las últimas novedades de su grupo.",
     "categoria": "Recomendadas",
@@ -200,7 +250,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 21,
+    "id": 26,
     "nombre": "Luz Rodriguez",
     "descripcion": "Acceso premium inmediato al canal oficial de Luz Rodriguez con el contenido más buscado.",
     "categoria": "Mas Visitadas",
@@ -210,7 +260,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 22,
+    "id": 27,
     "nombre": "Yaritza Lopez",
     "descripcion": "Comunidad VIP de Yaritza Lopez. Espacio verificado con actualizaciones y dinámicas activas.",
     "categoria": "Populares",
@@ -220,7 +270,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 23,
+    "id": 28,
     "nombre": "Desire Garcia",
     "descripcion": "Canal oficial dedicado con todo el contenido exclusivo y novedades constantes de Desire Garcia.",
     "categoria": "Mas Buscadas",
@@ -230,7 +280,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 24,
+    "id": 29,
     "nombre": "Majo Ramirez",
     "descripcion": "Únete a la comunidad verificada de Majo Ramirez. Todo su contenido organizado en un acceso directo.",
     "categoria": "Recomendadas",
@@ -240,7 +290,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 25,
+    "id": 30,
     "nombre": "La Queso",
     "descripcion": "Comunidad premium oficial dedicada al seguimiento y novedades en tiempo real de La Queso.",
     "categoria": "Mas Visitadas",
@@ -250,7 +300,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 26,
+    "id": 31,
     "nombre": "Jacky Najera",
     "descripcion": "Acceso al canal exclusivo de Jacky Najera. Fotos, interacciones y contenido de nivel premium.",
     "categoria": "Populares",
@@ -260,7 +310,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 27,
+    "id": 32,
     "nombre": "Andy Flores",
     "descripcion": "Canal verificado oficial de Andy Flores. Únete al grupo privado con actualizaciones diarias.",
     "categoria": "Mas Buscadas",
@@ -270,7 +320,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 28,
+    "id": 33,
     "nombre": "Vanessa Yuri",
     "descripcion": "Comunidad privada de Vanessa Yuri en Telegram. Todo el contenido oficial en alta calidad.",
     "categoria": "Recomendadas",
@@ -280,7 +330,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 29,
+    "id": 34,
     "nombre": "La condesa",
     "descripcion": "Canal premium exclusivo de La condesa. El espacio oficial con novedades constantes.",
     "categoria": "Mas Visitadas",
@@ -290,7 +340,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 30,
+    "id": 35,
     "nombre": "Cesia Díaz",
     "descripcion": "Grupo oficial verificado de Cesia Díaz. Espacio VIP para miembros de la comunidad.",
     "categoria": "Populares",
@@ -300,7 +350,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 31,
+    "id": 36,
     "nombre": "Soynayensy",
     "descripcion": "Únete para conocer las últimas publicaciones y novedades dentro del canal oficial de Soynayensy.",
     "categoria": "Mas Buscadas",
@@ -310,7 +360,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 32,
+    "id": 37,
     "nombre": "Yanny Fonseca",
     "descripcion": "Canal exclusivo de Yanny Fonseca. Todo el contenido structured en alta velocidad.",
     "categoria": "Recomendadas",
@@ -320,7 +370,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 33,
+    "id": 38,
     "nombre": "Sofia Pineda",
     "descripcion": "Comunidad oficial verificada de Sofia Pineda. Acceso libre al directorio de publicaciones.",
     "categoria": "Mas Visitadas",
@@ -330,7 +380,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 34,
+    "id": 39,
     "nombre": "Mia Millón",
     "descripcion": "Espacio premium VIP para miembros del canal oficial verificado de Mia Millón.",
     "categoria": "Populares",
@@ -340,7 +390,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 35,
+    "id": 40,
     "nombre": "Paty Guzman",
     "descripcion": "Canal principal verificado de Paty Guzman. Únete al grupo con las publicaciones más buscadas.",
     "categoria": "Mas Buscadas",
@@ -350,7 +400,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 36,
+    "id": 41,
     "nombre": "Mi Flaca",
     "descripcion": "Comunidad dedicada oficial de Mi Flaca con el contenido y actualizaciones más recientes.",
     "categoria": "Recomendadas",
@@ -360,7 +410,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 37,
+    "id": 42,
     "nombre": "Vanessa Barahona",
     "descripcion": "Acceso verificado a la comunidad premium de Vanessa Barahona. Actualizaciones de alta calidad.",
     "categoria": "Mas Visitadas",
@@ -370,7 +420,7 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 38,
+    "id": 43,
     "nombre": "Daniella Cadenas",
     "descripcion": "Acceso premium verificado al canal principal de Daniella Cadenas. Actualizaciones inmediatas.",
     "categoria": "Populares",
@@ -380,59 +430,9 @@ const CANALES_DATOS = [
     "popular": false
   },
   {
-    "id": 39,
-    "nombre": "Kensy Solis",
-    "descripcion": "Canal verificado oficial de Kensy Solis. Únete al grupo con las publicaciones exclusivas.",
-    "categoria": "Mas Buscadas",
-    "pais": "HONDUREÑAS",
-    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/+rtSZIUKSkVBlNzIx",
-    "popular": false
-  },
-  {
-    "id": 40,
-    "nombre": "Valeria Aguilar",
-    "descripcion": "Comunidad privada oficial de Valeria Aguilar en Telegram. Todo el contenido en alta calidad.",
-    "categoria": "Recomendadas",
-    "pais": "HONDUREÑAS",
-    "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/+A0xn0NVjVuRjNjYx",
-    "popular": false
-  },
-  {
-    "id": 41,
-    "nombre": "Desire Diaz",
-    "descripcion": "Canal premium exclusivo verificado de Desire Diaz. El espacio oficial con novedades constantes.",
-    "categoria": "Mas Visitadas",
-    "pais": "HONDUREÑAS",
-    "imagen": "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/+MmIkwb1PoMk0Nzgx",
-    "popular": false
-  },
-  {
-    "id": 42,
-    "nombre": "Step Reyes",
-    "descripcion": "Grupo oficial de Step Reyes. Espacio VIP activo con actualizaciones diarias en alta velocidad.",
-    "categoria": "Populares",
-    "pais": "HONDUREÑAS",
-    "imagen": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/+H_am9c5lam00ZDgx",
-    "popular": false
-  },
-  {
-    "id": 43,
-    "nombre": "La Niche",
-    "descripcion": "Únete para conocer las últimas publicaciones dentro de la comunidad oficial de La Niche.",
-    "categoria": "Mas Buscadas",
-    "pais": "HONDUREÑAS",
-    "imagen": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
-    "enlace": "https://t.me/+SrhaczXTjJs2ZmFh",
-    "popular": false
-  },
-  {
     "id": 44,
     "nombre": "Jelen Santos",
-    "descripcion": "Canal exclusivo de Jelen Santos. Todo el contenido oficial estructurado de forma premium.",
+    "descripcion": "Canal exclusivo de Jelen Santos. Todo el contenido oficial structured de forma premium.",
     "categoria": "Recomendadas",
     "pais": "HONDUREÑAS",
     "imagen": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
