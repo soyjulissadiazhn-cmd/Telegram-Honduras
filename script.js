@@ -299,8 +299,9 @@ const CANALES_DATOS = [
 ];
 
 let categoriaActiva = "todas";
+const ENLACE_DESBLOQUEAR_GLOBAL = "https://unlockt.me/v/947a74b739";
 
-// Carga Inicial Directa (Elimina esperas colgadas del DOM)
+// Carga Inicial Directa
 procesarYFiltrarContenido();
 aplicarSeguridadFotografias();
 
@@ -354,67 +355,3 @@ function construirTarjetasVisuales(listaCanales) {
     
     listaCanales.forEach(canal => {
         const tarjetaHtml = document.createElement("article");
-        tarjetaHtml.classList.add("tarjeta-canal");
-        
-        tarjetaHtml.innerHTML = `
-            <div class="contenedor-foto" oncontextmenu="return false;">
-                <img src="${canal.imagen}" alt="Imagen de ${canal.nombre}" class="img-protegida" loading="lazy" draggable="false" oncontextmenu="return false;">
-                <div class="badge-categoria">${canal.categoria}</div>
-            </div>
-            <div class="info-cuerpo-tarjeta">
-                <div class="meta-pais">
-                    <i data-lucide="map-pin"></i> ${canal.pais}
-                </div>
-                <h2 class="titulo-canal">${canal.nombre}</h2>
-                <p class="desc-canal">${canal.descripcion}</p>
-                <button class="btn-entrar-telegram" onclick="abrirCanalSeguro('${canal.enlace}')">
-                    <i data-lucide="send"></i> Entrar al Canal
-                </button>
-            </div>
-        `;
-        gridCanales.appendChild(tarjetaHtml);
-    });
-    
-    activarEscuchasDeFiltros();
-    
-    if (window.lucide) {
-        lucide.createIcons();
-    }
-}
-
-function abrirCanalSeguro(enlace) {
-    if (enlace.includes('+')) {
-        const partes = [...enlace.split('/')];
-        const codigoInvitacion = partes[partes.length - 1].replace('+', '');
-        const enlaceForzado = `tg://join?invite=${codigoInvitacion}`;
-        window.location.href = enlaceForzado;
-        
-        setTimeout(() => {
-            window.open(enlace, '_blank');
-        }, 500);
-    } else {
-        window.open(enlace, '_blank');
-    }
-}
-
-function aplicarSeguridadFotografias() {
-    document.addEventListener('contextmenu', e => {
-        if (e.target.classList.contains('img-protegida') || e.target.classList.contains('contenedor-foto')) {
-            e.preventDefault();
-        }
-    });
-
-    document.addEventListener('dragstart', e => {
-        if (e.target.classList.contains('img-protegida')) {
-            e.preventDefault();
-        }
-    });
-
-    document.addEventListener('touchstart', e => {
-        if (e.target.classList.contains('img-protegida')) {
-            e.target.style.webkitTouchCallout = 'none';
-            e.target.style.webkitUserSelect = 'none';
-            e.target.style.userSelect = 'none';
-        }
-    }, {passive: true});
-}
