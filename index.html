@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Plataforma premium para descubrir y unirse a los mejores canales de Telegram organizados por categorías.">
+    <meta name="description" content="Plataforma premium para descubrir y explorar canales de Telegram Honduras organizados por categorías. Acceso verificado de forma directa.">
     <title>Telegram Hub Honduras | Directorio Premium</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@0.400.0/dist/umd/lucide.min.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-    <div class="decoracion-fondo-aurora"></div>
+    <div class="decoracion-fondo-aurora" aria-hidden="true"></div>
 
     <header class="header-premium">
         <div class="contenedor-nav">
@@ -21,38 +22,62 @@
                 <i data-lucide="send" class="icono-logo"></i>
                 <span class="texto-logo">TELEGRAM<span class="resalto-logo">HN</span></span>
             </div>
-            <nav class="menu-derecho">
+            <div class="menu-derecho">
                 <span class="badge-elite">PLATAFORMA SEGURA Y VERIFICADA</span>
-            </nav>
+            </div>
         </div>
     </header>
 
     <section class="banner-hero">
         <div class="contenido-hero">
-            <span class="tagline-premium">Comunidades VIP & Canales Exclusivos</span>
-            <h1 class="titulo-principal">Los Mejores Canales de <span class="gradiente-texto">Telegram</span></h1>
-            <p class="subtitulo-principal">"Deja de buscar. Encuentra los grupos y canales en tendencia en un solo lugar y únete con un solo clic."</p>
+            <span class="tagline-premium">Directorio Profesional Verificado</span>
+            <h1 class="titulo-principal">Descubre los canales más buscados de <span class="gradiente-texto">Telegram Honduras</span></h1>
+            <p class="subtitulo-principal">Explora perfiles destacados, encuentra tus canales favoritos y accede mediante un proceso sencillo desde cualquier dispositivo.</p>
+            
+            <div class="grid-beneficios">
+                <div class="beneficio-item">
+                    <i data-lucide="layout-grid"></i>
+                    <span>Perfiles organizados</span>
+                </div>
+                <div class="beneficio-item">
+                    <i data-lucide="shield-check"></i>
+                    <span>Acceso sencillo</span>
+                </div>
+                <div class="beneficio-item">
+                    <i data-lucide="smartphone"></i>
+                    <span>Compatible con teléfonos</span>
+                </div>
+            </div>
+
+            <button type="button" class="btn-explorar-hero" id="btn-scroll-canales">
+                Explorar canales <i data-lucide="arrow-down" class="icono-flecha-hero"></i>
+            </button>
         </div>
     </section>
 
-    <main class="contenedor-principal">
+    <main class="contenedor-principal" id="seccion-directorio">
+        
         <section class="panel-control-glass">
             <div class="bloque-buscador">
                 <i data-lucide="search" class="icono-buscar"></i>
-                <input type="text" id="buscador-input" placeholder="Buscar canales de chicas por nombre o palabras clave...">
+                <input type="text" id="buscador-input" placeholder="Buscar canales por nombre o palabras clave..." autocomplete="off">
+                <button type="button" class="btn-limpiar-busqueda oculto" id="btn-clear-search-inline" title="Limpiar búsqueda">
+                    <i data-lucide="x"></i>
+                </button>
             </div>
 
             <div class="contenedor-categorias">
                 <span class="titulo-categorias-seccion">Categorías Disponibles:</span>
                 <div class="grid-botones-categorias" id="contenedor-botones-categorias">
-                    <button class="btn-categoria activo" data-categoria="todas">Todas</button>
-                    <button class="btn-categoria" data-categoria="Más Buscadas">Más Buscadas</button>
+                    <button type="button" class="btn-categoria activo" data-categoria="todas">Todas</button>
+                    <button type="button" class="btn-categoria" data-categoria="mas-buscadas">Más buscadas</button>
+                    <button type="button" class="btn-categoria" data-categoria="nuevas">Nuevas</button>
                 </div>
             </div>
         </section>
 
-        <div class="contador-resultados" id="contador-canales">
-            Conectando con el listado de canales...
+        <div class="contador-resultados" id="contador-canales" aria-live="polite">
+            Cargando base de datos de canales organizados...
         </div>
 
         <section class="grid-canales" id="grid-canales">
@@ -60,61 +85,134 @@
 
         <div class="estado-vacio oculto" id="estado-vacio">
             <i data-lucide="alert-circle" class="icono-vacio"></i>
-            <h3>No se encontraron resultados</h3>
-            <p>Prueba escribiendo el nombre de otra chica o seleccionando otra categoría.</p>
+            <h3 id="estado-vacio-titulo">No encontramos canales que coincidan con tu búsqueda.</h3>
+            <p id="estado-vacio-texto">Prueba escribiendo el nombre de otra chica o seleccionando otra categoría.</p>
+            <button type="button" class="btn-accion-estado" id="btn-reset-vacio">Limpiar búsqueda</button>
         </div>
-        
-        <section class="seccion-comentarios">
-            <h3 class="titulo-comentarios">Lo que dice nuestra comunidad 🔥</h3>
-            
-            <div class="lista-comentarios" id="lista-comentarios">
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #eab308;">C</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Carlos M.</h4><p class="texto-comentario">La mejor página que he encontrado, aquí están todas las maes más ricas. ¡100% recomendado loco!</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #ec4899;">L</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Luis Fernando</h4><p class="texto-comentario">Bro, pensé que era mentira pero el enlace de Unlock.me es 100% confiable y seguro. Ya entré a 3 grupos y todo al cien.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #3b82f6;">K</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Kevin Martinez</h4><p class="texto-comentario">Por fin un directorio que sí funciona y no tiene enlaces caídos. Las mejores de Honduras están aquí, buenísimo.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #22c55e;">E</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Elian H.</h4><p class="texto-comentario">Que pinta esta página man, al fin encuentro a la Niche sin tanto acortador de virus. Directo al grano.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #f97316;">J</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">JorG_504</h4><p class="texto-comentario">Loco, pagué en Unlock y me dio el acceso de un solo. Vale la pena totalmente, ya estoy en el VIP.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #a855f7;">D</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">David99</h4><p class="texto-comentario">10/10 los canales. Llevaba meses buscando el de Kensy y acá está nítido.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #ef4444;">A</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">AnonHN</h4><p class="texto-comentario">Pucha, qué macizo está esto. Todo bien organizado y súper rápido.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #3b82f6;">B</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Bryan</h4><p class="texto-comentario">Yo tenía desconfianza de pagar, pero es súper seguro. Ya estoy en 5 grupos VIP y uff 🔥</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #eab308;">H</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Hector</h4><p class="texto-comentario">Excelente servicio compa, las chavas están brutales. Recomendado.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #22c55e;">J</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Josue</h4><p class="texto-comentario">Recomendado al 1000%. Cero estafas, entras directo a Telegram después del pago.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #ec4899;">M</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Marcos P.</h4><p class="texto-comentario">Qué nivel de página. Todo clarito y funciona a la perfección.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #f97316;">C</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Chele_SPS</h4><p class="texto-comentario">Hey loco, valió cada centavo el Unlock. Esa Brisna está de infarto 🥵</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #3b82f6;">D</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Dani_HN</h4><p class="texto-comentario">Brutal, entré a dos canales hoy y los videos están completos.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #a855f7;">S</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">SPS_Boy</h4><p class="texto-comentario">Al cien la página, desde San Pedro Sula reportando, todo nítido y real.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #ef4444;">M</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Marlon</h4><p class="texto-comentario">Pensé que me iban a robar pero nel, 100% real no fake. Pagué y pum, adentro del grupo.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #eab308;">T</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Teguz504</h4><p class="texto-comentario">Calidad de aportes bro, sigan subiendo más perfiles porfa.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #22c55e;">A</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Alex_00</h4><p class="texto-comentario">Pagué con tarjeta por el link de unlock y cero clavos. Entré al VIP de una vez.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #ec4899;">C</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Chaparro</h4><p class="texto-comentario">Loco, me voló la cabeza el contenido. Súper recomendada la web a todos los compas.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #3b82f6;">R</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Ramon</h4><p class="texto-comentario">Nambe, esto es oro puro jajaja. Gracias por armar este catálogo, me ahorraron horas.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #f97316;">O</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Oscar</h4><p class="texto-comentario">Todo legal, cero pajas. Te manda al canal de Telegram directito al hacer el pago.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #a855f7;">H</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">HN_Vip</h4><p class="texto-comentario">Llevaba rato buscando una web así, felicidades al creador, está macanudo el sistema.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #eab308;">C</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Cristhian</h4><p class="texto-comentario">¡Funciona! Pagué y ya estoy adentro del grupo viendo todo el contenido.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #ef4444;">F</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Felipe</h4><p class="texto-comentario">Las mejores hondureñas están acá. Confirmado por mí, no lo duden.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #22c55e;">E</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">El_Toro</h4><p class="texto-comentario">Qué buena onda que no hay publicidad de apuestas ni nada, vas directo a lo que vas.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #3b82f6;">I</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Ivan</h4><p class="texto-comentario">Recomendado maje, paguen sin miedo que sí llega el acceso de Telegram.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #ec4899;">G</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Gael</h4><p class="texto-comentario">Entré al de Majo y ufff... vale la pena el pago, 100% seguro.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #f97316;">P</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Paco</h4><p class="texto-comentario">Nítido el sistema. Pago rápido y acceso inmediato a los grupos.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #a855f7;">A</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Armando</h4><p class="texto-comentario">Saludos, muy buena página, todo carga rápido y los links sirven perfectamente.</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #eab308;">E</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Erick</h4><p class="texto-comentario">La Queso está rica, gracias por el link directo!!</p></div></div>
-                <div class="comentario-card"><div class="avatar-comentario" style="background: #3b82f6;">L</div><div class="cuerpo-comentario"><h4 class="nombre-comentario">Leo</h4><p class="texto-comentario">Cien puntos loco, no hay falla con Unlock.me. Disfrutando de los VIPs.</p></div></div>
-            </div>
 
-            <div class="caja-escribir-comentario">
-                <h4 class="titulo-escribir">Deja tu opinión</h4>
-                <form id="form-comentario">
-                    <input type="text" id="nombre-usuario" placeholder="Tu nombre o alias..." required>
-                    <textarea id="texto-usuario" placeholder="Escribe tu comentario aquí..." required></textarea>
-                    <button type="submit" class="btn-enviar-comentario">Publicar comentario</button>
-                </form>
+        <section class="seccion-comentarios">
+            <h3 class="titulo-comentarios">Experiencias de nuestros usuarios</h3>
+            <div class="lista-comentarios-fijos">
+                <div class="comentario-card-fijo">
+                    <div class="avatar-fijo" style="background-color: #0284c7;">A</div>
+                    <div class="cuerpo-fijo">
+                        <span class="nombre-fijo">Andrés M.</span>
+                        <p class="texto-fijo">La interfaz de la página es sumamente intuitiva. El catálogo se encuentra muy bien ordenado por categorías, lo cual facilita encontrar perfiles específicos sin rodeos.</p>
+                    </div>
+                </div>
+                <div class="comentario-card-fijo">
+                    <div class="avatar-fijo" style="background-color: #0d9488;">J</div>
+                    <div class="cuerpo-fijo">
+                        <span class="nombre-fijo">Jorge S.</span>
+                        <p class="texto-fijo">El proceso de acceso es sumamente ágil y directo. Me agrada que la plataforma funcione de forma rápida en teléfonos móviles sin sufrir pérdidas de rendimiento.</p>
+                    </div>
+                </div>
+                <div class="comentario-card-fijo">
+                    <div class="avatar-fijo" style="background-color: #7c3aed;">E</div>
+                    <div class="cuerpo-fijo">
+                        <span class="nombre-fijo">Eduardo T.</span>
+                        <p class="texto-fijo">Excelente distribución del directorio informativo. Los enlaces a la plataforma externa Unlockt funcionan de forma correcta, rápida y sin sorpresas engañosas.</p>
+                    </div>
+                </div>
+                <div class="comentario-card-fijo">
+                    <div class="avatar-fijo" style="background-color: #db2777;">R</div>
+                    <div class="cuerpo-fijo">
+                        <span class="nombre-fijo">Ramiro V.</span>
+                        <p class="texto-fijo">Un sitio web limpio, profesional y directo. La clasificación entre comunidades nuevas y las más buscadas ahorra muchísimo tiempo de navegación.</p>
+                    </div>
+                </div>
             </div>
         </section>
-        </main>
+
+        <section class="seccion-seguridad-legal">
+            <div class="bloque-legal-cabecera">
+                <i data-lucide="shield-alert" class="icono-legal-header"></i>
+                <h3>Seguridad y uso responsable</h3>
+            </div>
+            <div class="grid-clausulas-legales">
+                <div class="clausula-item">
+                    <h5>Restricción de Edad Obligatoria</h5>
+                    <p>Este sitio web está dirigido única y exclusivamente a personas mayores de 18 años. Al continuar navegando, el visitante asume el compromiso legal de cumplir con las legislaciones y normativas vigentes en su respectivo país de residencia.</p>
+                </div>
+                <div class="clausula-item">
+                    <h5>Naturaleza Informativa del Directorio</h5>
+                    <p>La página web funciona de forma estricta como un directorio puramente informativo y de recopilación. No se aloja, transmite, almacena ni distribuye de forma directa ningún tipo de contenido multimedia, archivos, videos o imágenes de los canales indexados.</p>
+                </div>
+                <div class="clausula-item">
+                    <h5>Enlaces Externos e Independencia de Marca</h5>
+                    <p>Todos los enlaces de redirección conducen hacia la plataforma oficial de Telegram o a pasarelas de servicios externos independientes. Este sitio web no cuenta con ninguna afiliación comercial, patrocinio o nexo oficial con la aplicación de mensajería Telegram, siendo esta una marca registrada totalmente independiente.</p>
+                </div>
+                <div class="clausula-item">
+                    <h5>Políticas de Contenido Inapropiado y Transparencia</h5>
+                    <p>Bajo ninguna circunstancia se permite ni se tolera la indexación de contenido relacionado con menores de edad o material publicado sin la debida autorización de su propietario. Cualquier usuario o titular de derechos puede solicitar la eliminación inmediata de un enlace, perfil o imagen a través de los canales de soporte corporativo habilitados en el pie de página.</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer-premium">
-        <p>© 2026 TELEGRAM HUB HN. Todos los derechos reservados. Diseño Ultra-Premium.</p>
+        <div class="contenedor-footer-content">
+            <div class="footer-info-marca">
+                <span class="footer-logo">TELEGRAM<span class="resalto-logo">HN</span></span>
+                <p class="footer-disclaimer-brand">Directorio independiente de comunidades. Telegram es una marca registrada independiente.</p>
+            </div>
+            <div class="footer-enlaces-legales">
+                <button type="button" class="btn-footer-link" data-modal-legal="terminos">Términos y condiciones</button>
+                <button type="button" class="btn-footer-link" data-modal-legal="privacidad">Política de privacidad</button>
+                <button type="button" class="btn-footer-link" data-modal-legal="mayoridad">Aviso para mayores de 18 años</button>
+                <button type="button" class="btn-footer-link" data-modal-legal="reportar">Reportar contenido</button>
+                <button type="button" class="btn-footer-link" data-modal-legal="eliminacion">Solicitar eliminación</button>
+                <button type="button" class="btn-footer-link" data-modal-legal="contacto">Contacto</button>
+            </div>
+        </div>
+        <div class="footer-derechos-barra">
+            <p>© <span id="auto-year">2026</span> TELEGRAM HUB HN. Todos los derechos reservados. Acceso de Adultos Garantizado.</p>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <div class="modal-backdrop-sistema oculto" id="modal-desbloqueo-canal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-canal">
+        <div class="modal-box-glass">
+            <div class="modal-header-icon green">
+                <i data-lucide="external-link"></i>
+            </div>
+            <h4 class="modal-titulo-sistema" id="modal-titulo-canal">Desbloquear acceso</h4>
+            <div class="modal-cuerpo-sistema">
+                <p class="modal-nombre-elemento-destacado" id="dinamico-modal-canal-name">Nombre del Canal</p>
+                <p class="modal-texto-aviso-legal">Estás a punto de salir de esta página y continuar el proceso de acceso mediante un servicio externo.</p>
+            </div>
+            <div class="modal-footer-botones">
+                <button type="button" class="btn-modal-accion secundario" id="btn-modal-cancelar-desbloqueo">Cancelar</button>
+                <button type="button" class="btn-modal-accion primario verde" id="btn-modal-confirmar-desbloqueo">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop-sistema oculto" id="modal-textos-legales-footer" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-legal">
+        <div class="modal-box-glass ancho-legal">
+            <h4 class="modal-titulo-sistema" id="modal-titulo-legal">Información Legal</h4>
+            <div class="modal-cuerpo-sistema legal-scroll" id="modal-cuerpo-legal-dinamico">
+                </div>
+            <div class="modal-footer-botones">
+                <button type="button" class="btn-modal-accion primario" id="btn-modal-cerrar-legal">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop-sistema age-gate-blocker" id="modal-interceptor-edad" role="dialog" aria-modal="true" aria-hidden="false">
+        <div class="modal-box-glass age-box">
+            <div class="modal-header-icon shadow-gold">
+                <span class="badge-18-icon">18+</span>
+            </div>
+            <h4 class="modal-titulo-sistema font-bold-header">Acceso Restringido</h4>
+            <div class="modal-cuerpo-sistema text-center-box">
+                <p class="modal-texto-aviso-legal-age">Este sitio contiene referencias a canales dirigidos exclusivamente a personas adultas. Confirma que tienes 18 años o más para continuar.</p>
+            </div>
+            <div class="modal-footer-botones vertical-layout-mobile">
+                <button type="button" class="btn-modal-accion secundario salir-gate" id="btn-age-gate-salir">Salir</button>
+                <button type="button" class="btn-modal-accion primario confirmar-gate" id="btn-age-gate-confirmar">Soy mayor de 18 años</button>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
