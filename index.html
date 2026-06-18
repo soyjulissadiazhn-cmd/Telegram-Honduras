@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="description" content="Plataforma premium para descubrir y unirse a los mejores canales de Telegram Honduras organizados por categorías de forma segura.">
     <title>Telegram Hub Honduras | Directorio Premium</title>
-    <link rel="stylesheet" href="./style.css?v=20260618-5">
+    <link rel="stylesheet" href="./style.css?v=20260618-6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Dependencia fija de la biblioteca de iconos Lucide para producción -->
     <script src="https://unpkg.com/lucide@0.400.0/dist/umd/lucide.min.js" defer></script>
-    <script src="./script.js?v=20260618-5" defer></script>
+    <script src="./script.js?v=20260618-6" defer></script>
 </head>
 <body>
 
+    <!-- Fondo de Efecto Aurora Estético -->
     <div class="decoracion-fondo-aurora" aria-hidden="true"></div>
 
+    <!-- Encabezado de Navegación Principal -->
     <header class="header-premium">
         <div class="contenedor-nav">
             <div class="logo-area">
@@ -28,6 +31,7 @@
         </div>
     </header>
 
+    <!-- Sección Hero Principal Optimizada (Sin Beneficios ni Botón de Desplazamiento) -->
     <section class="banner-hero">
         <div class="contenido-hero">
             <span class="tagline-premium">Comunidades VIP & Canales Exclusivos</span>
@@ -36,9 +40,11 @@
         </div>
     </section>
 
+    <!-- Contenedor del Directorio Informativo -->
     <main class="contenedor-principal" id="directorio-seccion">
         <section class="panel-control-glass">
             
+            <!-- Buscador Avanzado Centrado -->
             <div class="bloque-buscador">
                 <i data-lucide="search" class="icono-buscar"></i>
                 <input type="text" id="buscador-input" placeholder="Buscar canal por nombre…" autocomplete="off">
@@ -47,6 +53,7 @@
                 </button>
             </div>
 
+            <!-- Panel de Control de Categorías -->
             <div class="contenedor-categorias">
                 <span class="titulo-categorias-seccion">Categorías Disponibles:</span>
                 <div class="grid-botones-categorias" id="contenedor-botones-categorias">
@@ -57,13 +64,17 @@
             </div>
         </section>
 
+        <!-- Contador Sincronizado de Resultados -->
         <div class="contador-resultados" id="contador-canales" aria-live="polite">
             Sincronizando el registro de canales privados...
         </div>
 
+        <!-- Rejilla de Visualización Dinámica de Tarjetas -->
         <section class="grid-canales" id="grid-canales">
-            </section>
+            <!-- Inyección automatizada de Skeletons y Tarjetas -->
+        </section>
 
+        <!-- Contenedor Informativo Sin Resultados -->
         <div class="estado-vacio oculto" id="estado-vacio">
             <i data-lucide="alert-circle" class="icono-vacio"></i>
             <h3 id="estado-vacio-titulo">No encontramos canales que coincidan con tu búsqueda.</h3>
@@ -71,6 +82,7 @@
             <button type="button" class="btn-limpiar-accion" id="btn-limpiar-busqueda-vacio">Ver todos los canales</button>
         </div>
 
+        <!-- Sección de Experiencias de Usuarios Estáticas -->
         <section class="seccion-comentarios">
             <h3 class="titulo-comentarios">Experiencias de nuestros usuarios</h3>
             <div class="lista-comentarios-estaticos">
@@ -105,6 +117,7 @@
             </div>
         </section>
 
+        <!-- Sección Normativa de Seguridad y Clausulas Legales -->
         <section class="seccion-seguridad-legal">
             <div class="bloque-legal-cabecera">
                 <i data-lucide="shield-alert" class="icono-legal-header"></i>
@@ -131,6 +144,7 @@
         </section>
     </main>
 
+    <!-- Footer Corporativo Sincronizado -->
     <footer class="footer-premium">
         <div class="contenedor-footer-content">
             <div class="footer-info-marca">
@@ -151,6 +165,7 @@
         </div>
     </footer>
 
+    <!-- INTERFAZ DE CONFIRMACIÓN DINÁMICA DE REDIRECCIÓN A TELEGRAM -->
     <div class="modal-backdrop-sistema oculto" id="modal-confirmacion-telegram" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-canal">
         <div class="modal-box-glass">
             <div class="modal-header-icon blue-theme">
@@ -168,17 +183,20 @@
         </div>
     </div>
 
+    <!-- INTERFAZ DE MODAL PARA INFORMACIÓN LEGAL DE CONTENEDORES FOOTER -->
     <div class="modal-backdrop-sistema oculto" id="modal-textos-legales-footer" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-legal">
         <div class="modal-box-glass ancho-legal">
             <h4 class="modal-titulo-sistema" id="modal-titulo-legal">Información Legal</h4>
             <div class="modal-cuerpo-sistema legal-scroll" id="modal-cuerpo-legal-dinamico">
-                </div>
+                <!-- Inyección estructurada de textos legales -->
+            </div>
             <div class="modal-footer-botones">
                 <button type="button" class="btn-modal-accion primario" id="btn-modal-cerrar-legal">Entendido</button>
             </div>
         </div>
     </div>
 
+    <!-- INTERFAZ DE INTERCEPTOR OBLIGATORIO DE MAYORÍA DE EDAD -->
     <div class="modal-backdrop-sistema age-gate-blocker" id="modal-interceptor-edad" role="dialog" aria-modal="true" aria-hidden="false">
         <div class="modal-box-glass age-box">
             <div class="modal-header-icon shadow-gold">
