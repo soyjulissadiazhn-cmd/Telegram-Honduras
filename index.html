@@ -3,142 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="description" content="Plataforma premium para descubrir y unirse a los mejores canales de Telegram Honduras organizados por categorías de forma segura.">
+    <meta name="description" content="Directorio informativo para descubrir y acceder a canales de Telegram de Honduras organizados por categorías.">
+    <meta name="theme-color" content="#0a0b10">
     <title>Telegram Hub Honduras | Directorio Premium</title>
-    <link rel="stylesheet" href="./style.css?v=20260618-12">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css?v=20260618-13">
+
     <script src="https://unpkg.com/lucide@0.400.0/dist/umd/lucide.min.js" defer></script>
-    <script src="./script.js?v=20260618-12" defer></script>
+    <script src="./script.js?v=20260618-13" defer></script>
 </head>
 <body>
-
     <div class="decoracion-fondo-aurora" aria-hidden="true"></div>
 
     <header class="header-premium">
         <div class="contenedor-nav">
-            <div class="logo-area">
-                <i data-lucide="send" class="icono-logo"></i>
+            <div class="logo-area" aria-label="Telegram Hub Honduras">
+                <i data-lucide="send" class="icono-logo" aria-hidden="true"></i>
                 <span class="texto-logo">TELEGRAM<span class="resalto-logo">HN</span></span>
             </div>
-            <nav class="menu-derecho">
-                <span class="badge-elite">PLATAFORMA SEGURA Y VERIFICADA</span>
-            </nav>
         </div>
     </header>
 
-    <section class="banner-hero">
+    <section class="banner-hero" aria-labelledby="titulo-principal">
         <div class="contenido-hero">
-            <span class="tagline-premium">Comunidades VIP & Canales Exclusivos</span>
-            <h1 class="titulo-principal">Descubre los canales más buscados de <span class="gradiente-texto">Telegram Honduras</span></h1>
-            <p class="subtitulo-principal">Explora perfiles destacados, encuentra tus canales favoritos y accede mediante un proceso sencillo desde cualquier dispositivo.</p>
+            <span class="tagline-premium">Comunidades VIP &amp; Canales Exclusivos</span>
+            <h1 class="titulo-principal" id="titulo-principal">
+                Descubre los canales más buscados de
+                <span class="gradiente-texto">Telegram Honduras</span>
+            </h1>
+            <p class="subtitulo-principal">
+                Explora perfiles destacados, encuentra tus canales favoritos y accede mediante un proceso sencillo desde cualquier dispositivo.
+            </p>
         </div>
     </section>
 
     <main class="contenedor-principal" id="directorio-seccion">
-        <section class="panel-control-glass">
+        <section class="panel-control-glass" aria-label="Buscador y categorías del directorio">
             <div class="bloque-buscador">
-                <i data-lucide="search" class="icono-buscar"></i>
-                <input type="text" id="buscador-input" placeholder="Buscar canal por nombre…" autocomplete="off">
-                <button type="button" class="btn-limpiar-busqueda-inline oculto" id="btn-clear-input" title="Limpiar texto">
-                    <i data-lucide="x"></i>
+                <i data-lucide="search" class="icono-buscar" aria-hidden="true"></i>
+                <label class="sr-only" for="buscador-input">Buscar canal por nombre</label>
+                <input
+                    type="search"
+                    id="buscador-input"
+                    placeholder="Buscar canal por nombre…"
+                    autocomplete="off"
+                    autocapitalize="none"
+                    spellcheck="false"
+                    enterkeyhint="search"
+                >
+                <button
+                    type="button"
+                    class="btn-limpiar-busqueda-inline oculto"
+                    id="btn-clear-input"
+                    aria-label="Limpiar búsqueda"
+                    title="Limpiar búsqueda"
+                >
+                    <i data-lucide="x" aria-hidden="true"></i>
                 </button>
             </div>
 
             <div class="contenedor-categorias">
-                <span class="titulo-categorias-seccion">Categorías Disponibles:</span>
-                <div class="grid-botones-categorias" id="contenedor-botones-categorias">
-                    <button type="button" class="btn-categoria activo" data-categoria="todas">Todas</button>
-                    <button type="button" class="btn-categoria" data-categoria="mas-buscadas">Más buscadas</button>
-                    <button type="button" class="btn-categoria" data-categoria="nuevas">Nuevas</button>
+                <span class="titulo-categorias-seccion">Categorías disponibles</span>
+                <div class="grid-botones-categorias" id="contenedor-botones-categorias" role="group" aria-label="Filtrar canales por categoría">
+                    <button type="button" class="btn-categoria activo" data-categoria="todas" aria-pressed="true">Todas</button>
+                    <button type="button" class="btn-categoria" data-categoria="mas-buscadas" aria-pressed="false">Más buscadas</button>
+                    <button type="button" class="btn-categoria" data-categoria="nuevas" aria-pressed="false">Nuevas</button>
                 </div>
             </div>
         </section>
 
         <div class="contador-resultados" id="contador-canales" aria-live="polite">
-            Sincronizando el registro de canales privados...
+            Cargando canales disponibles…
         </div>
 
-        <section class="grid-canales" id="grid-canales">
-            </section>
+        <section class="grid-canales" id="grid-canales" aria-label="Canales de Telegram"></section>
 
-        <div class="estado-vacio oculto" id="estado-vacio">
-            <i data-lucide="alert-circle" class="icono-vacio"></i>
-            <h3 id="estado-vacio-titulo">No encontramos canales que coincidan con tu búsqueda.</h3>
-            <p id="estado-vacio-subtexto">Prueba escribiendo el nombre de otra chica o seleccionando otra categoría.</p>
+        <div class="estado-vacio oculto" id="estado-vacio" role="status">
+            <i data-lucide="alert-circle" class="icono-vacio" aria-hidden="true"></i>
+            <h2 id="estado-vacio-titulo">No encontramos canales que coincidan con tu búsqueda.</h2>
+            <p id="estado-vacio-subtexto">Prueba escribiendo otro nombre o seleccionando otra categoría.</p>
             <button type="button" class="btn-limpiar-accion" id="btn-limpiar-busqueda-vacio">Ver todos los canales</button>
         </div>
 
-        <section class="seccion-comentarios">
-            <h3 class="titulo-comentarios">EXPERIENCIAS DE NUESTROS USUARIOS</h3>
+        <section class="seccion-comentarios" aria-labelledby="titulo-comentarios">
+            <h2 class="titulo-comentarios" id="titulo-comentarios">EXPERIENCIAS DE NUESTROS USUARIOS</h2>
             <div class="lista-comentarios-estaticos">
-                
-                <div class="comentario-card-fijo">
+                <article class="comentario-card-fijo">
                     <div class="comentario-cabecera">
-                        <div class="avatar-comentario" style="background-color: #0284c7;">M</div>
-                        <h4 class="nombre-comentario">Marlon J.</h4>
+                        <div class="avatar-comentario avatar-azul" aria-hidden="true">M</div>
+                        <h3 class="nombre-comentario">Marlon J.</h3>
                     </div>
                     <p class="texto-comentario">“Me gustó que todo estuviera ordenado y que fuera fácil encontrar cada canal sin dar tantas vueltas.”</p>
-                </div>
+                </article>
 
-                <div class="comentario-card-fijo">
+                <article class="comentario-card-fijo">
                     <div class="comentario-cabecera">
-                        <div class="avatar-comentario" style="background-color: #eab308;">D</div>
-                        <h4 class="nombre-comentario">Daniel T.</h4>
+                        <div class="avatar-comentario avatar-oro" aria-hidden="true">D</div>
+                        <h3 class="nombre-comentario">Daniel T.</h3>
                     </div>
                     <p class="texto-comentario">“La página se siente rápida y clara. Entré desde el teléfono y pude buscar el perfil que quería sin problemas.”</p>
-                </div>
+                </article>
 
-                <div class="comentario-card-fijo">
+                <article class="comentario-card-fijo">
                     <div class="comentario-cabecera">
-                        <div class="avatar-comentario" style="background-color: #22c55e;">F</div>
-                        <h4 class="nombre-comentario">Fernando S.</h4>
+                        <div class="avatar-comentario avatar-verde" aria-hidden="true">F</div>
+                        <h3 class="nombre-comentario">Fernando S.</h3>
                     </div>
                     <p class="texto-comentario">“Los botones me llevaron directamente al canal correcto de Telegram. El proceso fue sencillo y fácil de entender.”</p>
-                </div>
+                </article>
 
-                <div class="comentario-card-fijo">
+                <article class="comentario-card-fijo">
                     <div class="comentario-cabecera">
-                        <div class="avatar-comentario" style="background-color: #a855f7;">C</div>
-                        <h4 class="nombre-comentario">Carlos R.</h4>
+                        <div class="avatar-comentario avatar-morado" aria-hidden="true">C</div>
+                        <h3 class="nombre-comentario">Carlos R.</h3>
                     </div>
                     <p class="texto-comentario">“El diseño está limpio y los perfiles se distinguen bien. La categoría de nuevas me ayudó a encontrar canales que no conocía.”</p>
-                </div>
+                </article>
 
-                <div class="comentario-card-fijo">
+                <article class="comentario-card-fijo comentario-destacado-final">
                     <div class="comentario-cabecera">
-                        <div class="avatar-comentario" style="background-color: #ef4444;">K</div>
-                        <h4 class="nombre-comentario">Kevin M.</h4>
+                        <div class="avatar-comentario avatar-rojo" aria-hidden="true">K</div>
+                        <h3 class="nombre-comentario">Kevin M.</h3>
                     </div>
                     <p class="texto-comentario">“Me pareció útil tener todos los canales reunidos en un solo lugar. El buscador funciona bien y ahorra bastante tiempo.”</p>
-                </div>
-
+                </article>
             </div>
         </section>
 
-        <section class="seccion-seguridad-legal">
+        <section class="seccion-seguridad-legal" aria-labelledby="titulo-seguridad">
             <div class="bloque-legal-cabecera">
-                <i data-lucide="shield-alert" class="icono-legal-header"></i>
-                <h3>SEGURIDAD Y USO RESPONSABLE</h3>
+                <i data-lucide="shield-alert" class="icono-legal-header" aria-hidden="true"></i>
+                <h2 id="titulo-seguridad">SEGURIDAD Y USO RESPONSABLE</h2>
             </div>
+
             <div class="grid-clausulas-legales">
-                <div class="clausula-item">
-                    <h5>Restricción de Edad Obligatoria</h5>
+                <article class="clausula-item">
+                    <h3>Restricción de Edad Obligatoria</h3>
                     <p>Este sitio está dirigido exclusivamente a personas mayores de 18 años. Al continuar navegando, el visitante confirma que cumple este requisito y asume la responsabilidad de respetar las leyes, normas y restricciones aplicables en su país de residencia.</p>
-                </div>
-                <div class="clausula-item">
-                    <h5>Naturaleza Informativa del Directorio</h5>
+                </article>
+
+                <article class="clausula-item">
+                    <h3>Naturaleza Informativa del Directorio</h3>
                     <p>Esta página funciona únicamente como un directorio informativo de enlaces. No aloja, almacena, transmite ni distribuye directamente fotografías, videos, archivos o publicaciones pertenecientes a los canales privados que aparecen organizados dentro del sitio.</p>
-                </div>
-                <div class="clausula-item">
-                    <h5>Enlaces Externos e Independencia de Marca</h5>
+                </article>
+
+                <article class="clausula-item">
+                    <h3>Enlaces Externos e Independencia de Marca</h3>
                     <p>Los botones de acceso conducen directamente a canales alojados en Telegram. Este directorio funciona de manera independiente y no mantiene afiliación, patrocinio ni relación comercial oficial con Telegram o con los administradores de la plataforma.</p>
-                </div>
-                <div class="clausula-item">
-                    <h5>Políticas de Contenido y Transparencia</h5>
+                </article>
+
+                <article class="clausula-item">
+                    <h3>Políticas de Contenido y Transparencia</h3>
                     <p>No se permite incluir material relacionado con menores ni publicaciones utilizadas sin autorización. Los propietarios o representantes autorizados pueden reportar un perfil y solicitar la eliminación de una fotografía, nombre o enlace mediante los medios disponibles en el pie de página.</p>
-                </div>
+                </article>
             </div>
         </section>
     </main>
@@ -149,7 +169,8 @@
                 <span class="footer-logo">TELEGRAM<span class="resalto-logo">HN</span></span>
                 <p class="footer-disclaimer-brand">Directorio estático e independiente. Telegram es una marca registrada independiente.</p>
             </div>
-            <div class="footer-enlaces-legales">
+
+            <div class="footer-enlaces-legales" aria-label="Información legal">
                 <button type="button" class="btn-footer-link" data-modal-legal="terminos">Términos y condiciones</button>
                 <button type="button" class="btn-footer-link" data-modal-legal="privacidad">Política de privacidad</button>
                 <button type="button" class="btn-footer-link" data-modal-legal="mayoridad">Aviso para mayores de 18 años</button>
@@ -158,20 +179,29 @@
                 <button type="button" class="btn-footer-link" data-modal-legal="contacto">Contacto</button>
             </div>
         </div>
+
         <div class="footer-derechos-barra">
             <p>© <span id="auto-year"></span> TELEGRAM HUB HN. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <div class="modal-backdrop-sistema oculto" id="modal-confirmacion-telegram" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-canal">
-        <div class="modal-box-glass">
+    <div
+        class="modal-backdrop-sistema oculto"
+        id="modal-confirmacion-telegram"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+        aria-labelledby="modal-titulo-canal"
+        aria-describedby="dinamico-modal-canal-msg"
+    >
+        <div class="modal-box-glass" tabindex="-1">
             <div class="modal-header-icon blue-theme">
-                <i data-lucide="send"></i>
+                <i data-lucide="send" aria-hidden="true"></i>
             </div>
-            <h4 class="modal-titulo-sistema" id="modal-titulo-canal">Continuar a Telegram</h4>
+            <h2 class="modal-titulo-sistema" id="modal-titulo-canal">Continuar a Telegram</h2>
             <div class="modal-cuerpo-sistema">
-                <p class="modal-nombre-elemento-destacado" id="dinamico-modal-canal-name">Canal privado de [NOMBRE]</p>
-                <p class="modal-texto-aviso-legal" id="dinamico-modal-canal-msg">Estás a punto de abrir el canal privado de Telegram de [NOMBRE]. Presiona continuar para abrirlo en la aplicación o en Telegram Web.</p>
+                <p class="modal-nombre-elemento-destacado" id="dinamico-modal-canal-name">Canal privado</p>
+                <p class="modal-texto-aviso-legal" id="dinamico-modal-canal-msg">Presiona continuar para abrir el canal en la aplicación o en Telegram Web.</p>
             </div>
             <div class="modal-footer-botones">
                 <button type="button" class="btn-modal-accion secundario" id="btn-modal-cancelar-telegram">Cancelar</button>
@@ -180,9 +210,16 @@
         </div>
     </div>
 
-    <div class="modal-backdrop-sistema oculto" id="modal-textos-legales-footer" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-legal">
-        <div class="modal-box-glass ancho-legal">
-            <h4 class="modal-titulo-sistema" id="modal-titulo-legal">Información Legal</h4>
+    <div
+        class="modal-backdrop-sistema oculto"
+        id="modal-textos-legales-footer"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+        aria-labelledby="modal-titulo-legal"
+    >
+        <div class="modal-box-glass ancho-legal" tabindex="-1">
+            <h2 class="modal-titulo-sistema" id="modal-titulo-legal">Información legal</h2>
             <div class="modal-cuerpo-sistema legal-scroll" id="modal-cuerpo-legal-dinamico"></div>
             <div class="modal-footer-botones">
                 <button type="button" class="btn-modal-accion primario" id="btn-modal-cerrar-legal">Entendido</button>
@@ -190,14 +227,22 @@
         </div>
     </div>
 
-    <div class="modal-backdrop-sistema age-gate-blocker" id="modal-interceptor-edad" role="dialog" aria-modal="true" aria-hidden="false">
-        <div class="modal-box-glass age-box">
+    <div
+        class="modal-backdrop-sistema age-gate-blocker"
+        id="modal-interceptor-edad"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="false"
+        aria-labelledby="titulo-modal-edad"
+        aria-describedby="texto-modal-edad"
+    >
+        <div class="modal-box-glass age-box" tabindex="-1">
             <div class="modal-header-icon shadow-gold">
-                <span class="badge-18-icon">18+</span>
+                <span class="badge-18-icon" aria-hidden="true">18+</span>
             </div>
-            <h4 class="modal-titulo-sistema font-bold-header">Acceso restringido</h4>
-            <div class="modal-cuerpo-sistema text-center-box">
-                <p class="modal-texto-aviso-legal-age">
+            <h2 class="modal-titulo-sistema" id="titulo-modal-edad">Acceso restringido</h2>
+            <div class="modal-cuerpo-sistema">
+                <p class="modal-texto-aviso-legal-age" id="texto-modal-edad">
                     Este sitio contiene referencias a canales dirigidos exclusivamente a personas adultas. Confirma que tienes 18 años o más para continuar.
                 </p>
             </div>
@@ -208,5 +253,8 @@
         </div>
     </div>
 
+    <noscript>
+        <div class="aviso-noscript">Activa JavaScript para visualizar y utilizar el directorio.</div>
+    </noscript>
 </body>
 </html>
