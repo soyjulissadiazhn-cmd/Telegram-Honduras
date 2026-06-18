@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="description" content="Plataforma premium para descubrir y unirse a los mejores canales de Telegram Honduras organizados por categorías de forma segura.">
     <title>Telegram Hub Honduras | Directorio Premium</title>
-    <link rel="stylesheet" href="./style.css?v=20260618-8">
+    <link rel="stylesheet" href="./style.css?v=20260618-9">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@0.400.0/dist/umd/lucide.min.js" defer></script>
-    <script src="./script.js?v=20260618-8" defer></script>
+    <script src="./script.js?v=20260618-9" defer></script>
 </head>
 <body>
 
@@ -38,7 +38,6 @@
 
     <main class="contenedor-principal" id="directorio-seccion">
         <section class="panel-control-glass">
-            
             <div class="bloque-buscador">
                 <i data-lucide="search" class="icono-buscar"></i>
                 <input type="text" id="buscador-input" placeholder="Buscar canal por nombre…" autocomplete="off">
@@ -62,7 +61,7 @@
         </div>
 
         <section class="grid-canales" id="grid-canales">
-            <!-- Inyección de Tarjetas -->
+            <!-- Las tarjetas se inyectan dinámicamente aquí -->
         </section>
 
         <div class="estado-vacio oculto" id="estado-vacio">
@@ -72,7 +71,6 @@
             <button type="button" class="btn-limpiar-accion" id="btn-limpiar-busqueda-vacio">Ver todos los canales</button>
         </div>
 
-        <!-- REESTRUCTURACIÓN DE COMENTARIOS PARA EVITAR SUPERPOSICIONES -->
         <section class="seccion-comentarios">
             <h3 class="titulo-comentarios">Experiencias de nuestros usuarios</h3>
             <div class="lista-comentarios-estaticos">
@@ -158,7 +156,7 @@
         </div>
     </footer>
 
-    <!-- INTERFAZ DE CONFIRMACIÓN DINÁMICA DE REDIRECCIÓN A TELEGRAM -->
+    <!-- MODAL: CONFIRMACIÓN TELEGRAM -->
     <div class="modal-backdrop-sistema oculto" id="modal-confirmacion-telegram" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-canal">
         <div class="modal-box-glass">
             <div class="modal-header-icon blue-theme">
@@ -176,7 +174,7 @@
         </div>
     </div>
 
-    <!-- INTERFAZ DE MODAL PARA INFORMACIÓN LEGAL DE CONTENEDORES FOOTER -->
+    <!-- MODAL: INFORMACIÓN LEGAL -->
     <div class="modal-backdrop-sistema oculto" id="modal-textos-legales-footer" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-legal">
         <div class="modal-box-glass ancho-legal">
             <h4 class="modal-titulo-sistema" id="modal-titulo-legal">Información Legal</h4>
@@ -187,7 +185,7 @@
         </div>
     </div>
 
-    <!-- INTERFAZ DE INTERCEPTOR OBLIGATORIO DE MAYORÍA DE EDAD -->
+    <!-- MODAL: MAYORÍA DE EDAD -->
     <div class="modal-backdrop-sistema age-gate-blocker" id="modal-interceptor-edad" role="dialog" aria-modal="true" aria-hidden="false">
         <div class="modal-box-glass age-box">
             <div class="modal-header-icon shadow-gold">
