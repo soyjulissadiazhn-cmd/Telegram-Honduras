@@ -458,38 +458,34 @@ body.modal-abierto {
     left: 12px;
     z-index: 3;
     display: flex;
+    flex-direction: column;
+    gap: 6px;
     max-width: calc(100% - 24px);
     pointer-events: none;
 }
 
 .badge-categoria {
-    display: inline-flex;
-    align-items: center;
     width: fit-content;
     max-width: 100%;
-    padding: 5px 10px;
+    padding: 4px 10px;
     border: 1px solid var(--borde-glass);
-    border-radius: 7px;
+    border-radius: 6px;
     background: rgba(10, 11, 16, 0.88);
+    backdrop-filter: blur(6px);
     color: #fff;
     font-size: 0.68rem;
-    font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: 0.2px;
+    font-weight: 700;
     white-space: nowrap;
-    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
 }
 
-.badge-popular {
-    border-color: rgba(255, 183, 3, 0.45);
+.badge-categoria.badge-popular {
+    border-color: rgba(255, 183, 3, 0.4);
     color: var(--color-oro-premium);
 }
 
-.badge-nuevo {
-    border-color: rgba(0, 162, 242, 0.5);
-    color: #57c7ff;
+.badge-categoria.badge-nuevo {
+    border-color: rgba(0, 162, 242, 0.4);
+    color: var(--color-telegram-hover);
 }
 
 .info-cuerpo-tarjeta {
@@ -500,12 +496,23 @@ body.modal-abierto {
 }
 
 .titulo-canal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     margin: 0;
     color: #fff;
     font-size: 1.15rem;
     font-weight: 700;
     line-height: 1.25;
     text-align: center;
+}
+
+.icono-verificado-titulo {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    color: var(--color-telegram-hover);
 }
 
 .btn-telegram-canal {
