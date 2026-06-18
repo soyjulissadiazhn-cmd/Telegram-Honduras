@@ -9,10 +9,60 @@ const CLAVE_EDAD = "age_verified_hn";
 const URL_IMAGEN_DRIVE = (id) => `https://lh3.googleusercontent.com/d/${encodeURIComponent(id)}=w500-h700-p`;
 const IMAGEN_RESPALDO_FALLBACK = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='700' viewBox='0 0 500 700'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23141620'/%3E%3Cstop offset='1' stop-color='%230a0b10'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='700' fill='url(%23g)'/%3E%3Ccircle cx='250' cy='280' r='78' fill='%23252a38'/%3E%3Cpath d='M105 590c20-112 95-170 145-170s125 58 145 170' fill='%23252a38'/%3E%3Ctext x='250' y='650' text-anchor='middle' fill='%239ca3af' font-family='Arial,sans-serif' font-size='24'%3EImagen no disponible%3C/text%3E%3C/svg%3E";
 
+const NOMBRES_CATEGORIA_NUEVAS = Object.freeze([
+    "Katherin Cota",
+    "Angie Alvarado",
+    "Aline Fonseca",
+    "Lizeth Rodriguez",
+    "Daniella Cadenas",
+    "Valeria Aguilar",
+    "Misaela Castejón"
+]);
+
+const ORDEN_TODAS_PRIORIDAD = Object.freeze([
+    "Soy Loruga",
+    "La Queso",
+    "Jacky Najera",
+    "La Condesa",
+    "Desire Garcia",
+    "Soy Nayensy",
+    "Mi Flaca",
+    "Fanny Cruz",
+    "Sarca Biker",
+    "Mary Guerra",
+    "Sofia Pineda",
+    "Mia Millón",
+    "Nala Rodríguez",
+    "Vanessa Barahona",
+    "Vanessa Yuri",
+    "Sindy Lopez",
+    "Yaritza Lopez",
+    "Cesia Díaz",
+    "La Niche",
+    "Majo Ramirez",
+    "Dany Villalobos",
+    "Jelen Santos"
+]);
+
+const ORDEN_NUEVAS = Object.freeze([
+    "Katherin Cota",
+    "Angie Alvarado",
+    "Aline Fonseca",
+    "Lizeth Rodriguez",
+    "Daniella Cadenas",
+    "Valeria Aguilar",
+    "Misaela Castejón"
+]);
+
+const NOMBRES_CATEGORIA_NUEVAS_NORMALIZADOS = new Set(NOMBRES_CATEGORIA_NUEVAS.map((nombre) => normalizarTexto(nombre)));
+const ORDEN_TODAS_PRIORIDAD_NORMALIZADO = ORDEN_TODAS_PRIORIDAD.map((nombre) => normalizarTexto(nombre));
+const ORDEN_NUEVAS_NORMALIZADO = ORDEN_NUEVAS.map((nombre) => normalizarTexto(nombre));
+
+
 const CANALES_DATOS = Object.freeze([
     { id: 1, nombre: "Brisna Reyes", popular: true, new: false, imagen: "1H4k6rbM3B1BWb4FI6ZlpZbfUB-0Xg3v_", enlace: "https://t.me/+C2dX4D28U244ZDZh" },
     { id: 2, nombre: "Kensy Solis", popular: true, new: false, imagen: "1CHWs_2JZICXvnYMg8kozn4PFdR8e0Q3b", enlace: "https://t.me/+rtSZIUKSkVBlNzIx" },
-    { id: 3, nombre: "Valeria Aguilar", popular: false, new: true, imagen: "1NwgfTAi0IvHpOqKSgpMFre9T_RfTB-Y3", enlace: "https://t.me/+A0xn0NVjVuRjNjYx" },
+    { id: 3, nombre: "Valeria Aguilar", popular: true, new: false, imagen: "1NwgfTAi0IvHpOqKSgpMFre9T_RfTB-Y3", enlace: "https://t.me/+A0xn0NVjVuRjNjYx" },
     { id: 4, nombre: "Desire Diaz", popular: true, new: false, imagen: "1B1-jKbJcO-9jvzU6_yEUrXiBhK0k3908", enlace: "https://t.me/+MmIkwb1PoMk0Nzgx" },
     { id: 5, nombre: "Step Reyes", popular: true, new: false, imagen: "1J6yXiUwuRxJWkNTk3cNp2VuMVqf1PpvE", enlace: "https://t.me/+H_am9c5lam00ZDgx" },
     { id: 6, nombre: "La Niche", popular: true, new: false, imagen: "1Pm-35B2KPfvdonKcCuYqdnQ9naI74kJ0", enlace: "https://t.me/+SrhaczXTjJs2ZmFh" },
@@ -31,7 +81,7 @@ const CANALES_DATOS = Object.freeze([
     { id: 19, nombre: "Nala Rodríguez", popular: true, new: false, imagen: "1EFlCzT8nmNDNcA9k901fSDMYu1cL9VtZ", enlace: "https://t.me/+uKhpzIQ4IjFjZDgx" },
     { id: 20, nombre: "Gabriela Rivas", popular: true, new: false, imagen: "1qMhCK5xXmsXQfXtR0-_Bosjj5qIgzlAR", enlace: "https://t.me/+8fTN-OJqrgYwNmRh" },
     { id: 21, nombre: "Rubi Sandoval", popular: true, new: false, imagen: "1q4m85443OI_4UjFTF59Zmn4ppDh3Znsg", enlace: "https://t.me/+enJWVflmbg0yMzUx" },
-    { id: 22, nombre: "Daniella Cadenas", popular: false, new: true, imagen: "1ILtQqboySGQtdiyxdhcOElINnmXY4lY-", enlace: "https://t.me/+b58aNVWYD4djOGYx" },
+    { id: 22, nombre: "Daniella Cadenas", popular: true, new: false, imagen: "1ILtQqboySGQtdiyxdhcOElINnmXY4lY-", enlace: "https://t.me/+b58aNVWYD4djOGYx" },
     { id: 23, nombre: "Luz Rodriguez", popular: true, new: false, imagen: "1-2CGbPsqVFZZui3_R2qrOu4rJCYykxar", enlace: "https://t.me/+ptgVgP-KahkyNGIx" },
     { id: 24, nombre: "Yaritza Lopez", popular: true, new: false, imagen: "1l3idivIqE8UcwXaQiL7MFfx6w6fepDjN", enlace: "https://t.me/+O2Wn0aKMC8MzZWEx" },
     { id: 25, nombre: "Desire Garcia", popular: true, new: false, imagen: "1nyMPPPLuc5m9ZWaAH8JO3JP0FMYcvnE2", enlace: "https://t.me/+Pb8EX6-bmNRhMjcx" },
@@ -43,67 +93,17 @@ const CANALES_DATOS = Object.freeze([
     { id: 31, nombre: "La Condesa", popular: true, new: false, imagen: "1FB5WlXNERO1V9k0W9XTlH4eMw6g7BNUW", enlace: "https://t.me/+g86KLMXR7As5MThh" },
     { id: 32, nombre: "Cesia Díaz", popular: true, new: false, imagen: "1g5_Y8jwAlf8RG7ozH5KliEwyQsNe9yN2", enlace: "https://t.me/+8PH4QKXiA_o0MWYx" },
     { id: 33, nombre: "Soy Nayensy", popular: true, new: false, imagen: "1NgRpTkK7DXYjnYreR2YEMMFEHMx3d54K", enlace: "https://t.me/+txryRi0jpUdmNjhh" },
-    { id: 34, nombre: "Dany Villalobos", popular: true, new: false, imagen: "1eQX38li-H571THJIKBy-N3ZCMPFpA4aq", enlace: "https://t.me/+E5zPP4HjaDExYmMx" },
-    { id: 35, nombre: "Soy Loruga", popular: true, new: false, imagen: "1OHZ5h1uoxCE55A2vPR3rXb_3GfJDsQHU", enlace: "https://t.me/+A3yqEaK9tZdmNWZh" },
-    { id: 36, nombre: "Fanny Cruz", popular: true, new: false, imagen: "15KqrjOcwY3LGHzvVhB3_lq4xQKiIPoJG", enlace: "https://t.me/+sjPLsn8kedwzNjBh" },
-    { id: 37, nombre: "Sarca Biker", popular: true, new: false, imagen: "16jYVYG-h2nYgG0PH72TNzTd5iMHTpI7f", enlace: "https://t.me/+ylPRFibcisRhNzJh" },
-    { id: 38, nombre: "Dary Castañeda", popular: true, new: false, imagen: "18BVaF822mSTPN4qlYdwrmDNMI0IwwoGp", enlace: "https://t.me/+Oh4JUJ1tvks3YjUx" },
+    { id: 34, nombre: "Dany Villalobos", popular: false, new: true, imagen: "1eQX38li-H571THJIKBy-N3ZCMPFpA4aq", enlace: "https://t.me/+E5zPP4HjaDExYmMx" },
+    { id: 35, nombre: "Soy Loruga", popular: false, new: true, imagen: "1OHZ5h1uoxCE55A2vPR3rXb_3GfJDsQHU", enlace: "https://t.me/+A3yqEaK9tZdmNWZh" },
+    { id: 36, nombre: "Fanny Cruz", popular: false, new: true, imagen: "15KqrjOcwY3LGHzvVhB3_lq4xQKiIPoJG", enlace: "https://t.me/+sjPLsn8kedwzNjBh" },
+    { id: 37, nombre: "Sarca Biker", popular: false, new: true, imagen: "16jYVYG-h2nYgG0PH72TNzTd5iMHTpI7f", enlace: "https://t.me/+ylPRFibcisRhNzJh" },
+    { id: 38, nombre: "Dary Castañeda", popular: false, new: true, imagen: "18BVaF822mSTPN4qlYdwrmDNMI0IwwoGp", enlace: "https://t.me/+Oh4JUJ1tvks3YjUx" },
     { id: 39, nombre: "Misaela Castejón", popular: false, new: true, imagen: "1Nmq01LiNjmK4ww0GO1K2T5LH2h14t5UP", enlace: "https://t.me/+l2iw7ku8t7BkY2Nh" },
     { id: 40, nombre: "Katherin Cota", popular: false, new: true, imagen: "1jVYopdOgWxmPAfFj321VhJ0rCtqvCgsj", enlace: "https://t.me/+2qFAw0Noo_VlNjIx" },
     { id: 41, nombre: "Angie Alvarado", popular: false, new: true, imagen: "1p-a60wA0GIF9sp6-zGrgcIeXqRxZ6Wt7", enlace: "https://t.me/+0bsZh4s-0W4wOTgx" },
     { id: 42, nombre: "Aline Fonseca", popular: false, new: true, imagen: "13cHWpNlcBStkLGPcJNsGn0vG1tXpXvS1", enlace: "https://t.me/+hXHxTt_OsiFhNzYx" },
-    { id: 43, nombre: "Ximena Alcalá", popular: true, new: false, imagen: "1WoLgPaO2ruhRuRtHQrv6tWIWe1vAfSem", enlace: "https://t.me/+fPbKcMqMQsM1MDEx" },
+    { id: 43, nombre: "Ximena Alcalá", popular: false, new: true, imagen: "1WoLgPaO2ruhRuRtHQrv6tWIWe1vAfSem", enlace: "https://t.me/+fPbKcMqMQsM1MDEx" },
     { id: 44, nombre: "Lizeth Rodriguez", popular: false, new: true, imagen: "1vO0FAinKrUUcrmcn0Qzwk7VdKL1u0Nbr", enlace: "https://t.me/+ODIHEY8jnDZhM2Jh" }
-]);
-
-const ORDEN_MAS_BUSCADAS = Object.freeze([
-    "Soy Loruga",
-    "La Queso",
-    "La Condesa",
-    "Mary Guerra",
-    "Vanessa Barahona",
-    "Nala Rodríguez",
-    "Andy Flores",
-    "Soy Nayensy",
-    "Mi Flaca",
-    "Step Reyes",
-    "Ximena Alcalá",
-    "Jassmin Abrego",
-    "Lopez Herrera",
-    "Brisna Reyes",
-    "Desire Diaz",
-    "Gabriela Rivas",
-    "Meylin Cardenas",
-    "Kensy Solis",
-    "Luz Rodriguez",
-    "Zamy Gaibor",
-    "Sarca Biker",
-    "Rubi Sandoval",
-    "Desire Garcia",
-    "Cesia Díaz",
-    "Yanny Fonseca",
-    "La Niche",
-    "Yaritza Lopez",
-    "Dary Castañeda",
-    "Sindy Lopez",
-    "Mia Millón",
-    "Majo Ramirez",
-    "Vanessa Yuri",
-    "Jelen Santos",
-    "Sofia Pineda",
-    "Dany Villalobos",
-    "Fanny Cruz",
-    "Jacky Najera"
-]);
-
-const ORDEN_NUEVAS = Object.freeze([
-    "Katherin Cota",
-    "Angie Alvarado",
-    "Aline Fonseca",
-    "Lizeth Rodriguez",
-    "Daniella Cadenas",
-    "Valeria Aguilar",
-    "Misaela Castejón"
 ]);
 
 const TEXTOS_LEGALES_FOOTER = Object.freeze({
@@ -302,25 +302,43 @@ function crearTarjetaCanal(canal) {
     capaProteccion.className = "capa-proteccion-imagen";
     capaProteccion.setAttribute("aria-hidden", "true");
 
-    const contenedorBadge = document.createElement("div");
-    contenedorBadge.className = "wrapper-badges-tarjeta";
-    contenedorBadge.setAttribute("aria-hidden", "true");
+    const wrapperBadges = document.createElement("div");
+    wrapperBadges.className = "wrapper-badges-tarjeta";
 
-    const badgeCategoria = document.createElement("span");
-    badgeCategoria.className = canal.new
-        ? "badge-categoria badge-nuevo"
-        : "badge-categoria badge-popular";
-    badgeCategoria.textContent = canal.new ? "NUEVA ⭐" : "MÁS BUSCADA 🔥";
-    contenedorBadge.appendChild(badgeCategoria);
+    if (esCanalPopular(canal)) {
+        const badgePopular = document.createElement("div");
+        badgePopular.className = "badge-categoria badge-popular";
+        badgePopular.textContent = "MÁS BUSCADA 🔥";
+        wrapperBadges.appendChild(badgePopular);
+    } else if (esCanalNuevo(canal)) {
+        const badgeNueva = document.createElement("div");
+        badgeNueva.className = "badge-categoria badge-nuevo";
+        badgeNueva.textContent = "NUEVA ⭐";
+        wrapperBadges.appendChild(badgeNueva);
+    }
 
-    contenedorFoto.append(imagen, capaProteccion, contenedorBadge);
+    contenedorFoto.append(imagen, capaProteccion, wrapperBadges);
 
     const cuerpo = document.createElement("div");
     cuerpo.className = "info-cuerpo-tarjeta";
 
     const titulo = document.createElement("h2");
     titulo.className = "titulo-canal";
-    titulo.textContent = canal.nombre;
+
+    const textoTitulo = document.createElement("span");
+    textoTitulo.textContent = canal.nombre;
+
+    const iconoVerificado = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    iconoVerificado.setAttribute("class", "icono-verificado-titulo");
+    iconoVerificado.setAttribute("viewBox", "0 0 24 24");
+    iconoVerificado.setAttribute("aria-hidden", "true");
+    iconoVerificado.setAttribute("focusable", "false");
+
+    const iconoPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    iconoPath.setAttribute("fill", "currentColor");
+    iconoPath.setAttribute("d", "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.3 7.6-5.2 6a1 1 0 0 1-1.5.1l-2.4-2.4a1 1 0 1 1 1.4-1.4l1.6 1.6 4.5-5.3a1 1 0 0 1 1.6 1.4z");
+    iconoVerificado.appendChild(iconoPath);
+    titulo.append(textoTitulo, iconoVerificado);
 
     const boton = document.createElement("button");
     boton.type = "button";
@@ -385,36 +403,19 @@ function renderizarCanales(listaCanales) {
     actualizarIconos();
 }
 
-function ordenarCanalesPorCategoria(listaCanales) {
-    const orden = categoriaActiva === "mas-buscadas"
-        ? ORDEN_MAS_BUSCADAS
-        : categoriaActiva === "nuevas"
-            ? ORDEN_NUEVAS
-            : null;
-
-    if (!orden) return listaCanales;
-
-    const posiciones = new Map(orden.map((nombre, indice) => [normalizarTexto(nombre), indice]));
-    return [...listaCanales].sort((a, b) => {
-        const posicionA = posiciones.get(normalizarTexto(a.nombre)) ?? Number.MAX_SAFE_INTEGER;
-        const posicionB = posiciones.get(normalizarTexto(b.nombre)) ?? Number.MAX_SAFE_INTEGER;
-        return posicionA - posicionB || a.id - b.id;
-    });
-}
-
 function filtrarYProcesarCanales() {
     try {
-        let canalesFiltrados = CANALES_DATOS.filter((canal) => {
+        const canalesFiltrados = CANALES_DATOS.filter((canal) => {
             const coincideBuscador = normalizarTexto(canal.nombre).includes(busquedaFiltroTexto);
             const coincideCategoria = categoriaActiva === "todas"
-                || (categoriaActiva === "mas-buscadas" && canal.popular)
-                || (categoriaActiva === "nuevas" && canal.new);
+                || (categoriaActiva === "mas-buscadas" && esCanalPopular(canal))
+                || (categoriaActiva === "nuevas" && esCanalNuevo(canal));
 
             return coincideBuscador && coincideCategoria;
         });
 
-        canalesFiltrados = ordenarCanalesPorCategoria(canalesFiltrados);
-        renderizarCanales(canalesFiltrados);
+        const canalesOrdenados = ordenarCanales(canalesFiltrados, categoriaActiva);
+        renderizarCanales(canalesOrdenados);
     } catch (error) {
         console.error("No se pudo procesar el listado de canales.", error);
         desplegarPantallaErrorSistema();
@@ -627,6 +628,8 @@ function validarBaseDeDatos() {
     const errores = [];
 
     if (CANALES_DATOS.length !== 44) errores.push(`Se esperaban 44 canales y se encontraron ${CANALES_DATOS.length}.`);
+    if (CANALES_DATOS.filter((canal) => esCanalNuevo(canal)).length !== 7) errores.push("La categoría Nuevas debe tener exactamente 7 perfiles.");
+    if (CANALES_DATOS.filter((canal) => esCanalPopular(canal)).length !== 37) errores.push("La categoría Más buscadas debe tener exactamente 37 perfiles.");
     if (new Set(ids).size !== ids.length) errores.push("Existen IDs duplicados.");
     if (new Set(nombres).size !== nombres.length) errores.push("Existen nombres duplicados.");
     if (new Set(enlaces).size !== enlaces.length) errores.push("Existen enlaces de Telegram duplicados.");
@@ -634,16 +637,6 @@ function validarBaseDeDatos() {
     if (!ids.every((id, indice) => id === indice + 1)) errores.push("Los IDs no están ordenados del 1 al 44.");
     if (nombres.some((nombre) => perfilesExcluidos.includes(nombre))) errores.push("Se encontró un perfil excluido dentro de la base de datos.");
     if (!nombres.includes("soy loruga")) errores.push("Falta el perfil válido Soy Loruga.");
-
-    const totalMasBuscadas = CANALES_DATOS.filter((canal) => canal.popular && !canal.new).length;
-    const totalNuevas = CANALES_DATOS.filter((canal) => canal.new && !canal.popular).length;
-    const categoriasInvalidas = CANALES_DATOS.some((canal) => canal.popular === canal.new);
-
-    if (totalMasBuscadas !== 37) errores.push(`Se esperaban 37 perfiles en Más buscadas y se encontraron ${totalMasBuscadas}.`);
-    if (totalNuevas !== 7) errores.push(`Se esperaban 7 perfiles en Nuevas y se encontraron ${totalNuevas}.`);
-    if (categoriasInvalidas) errores.push("Cada perfil debe pertenecer exclusivamente a Más buscadas o Nuevas.");
-    if (ORDEN_MAS_BUSCADAS.length !== 37) errores.push("El orden de Más buscadas no contiene 37 perfiles.");
-    if (ORDEN_NUEVAS.length !== 7) errores.push("El orden de Nuevas no contiene 7 perfiles.");
 
     if (errores.length > 0) {
         console.error("Errores detectados en CANALES_DATOS:", errores);
