@@ -259,7 +259,21 @@ function crearTarjetaCanal(canal) {
 
     const titulo = document.createElement("h2");
     titulo.className = "titulo-canal";
-    titulo.textContent = canal.nombre;
+
+    const textoTitulo = document.createElement("span");
+    textoTitulo.textContent = canal.nombre;
+
+    const iconoVerificado = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    iconoVerificado.setAttribute("class", "icono-verificado-titulo");
+    iconoVerificado.setAttribute("viewBox", "0 0 24 24");
+    iconoVerificado.setAttribute("aria-hidden", "true");
+    iconoVerificado.setAttribute("focusable", "false");
+
+    const iconoPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    iconoPath.setAttribute("fill", "currentColor");
+    iconoPath.setAttribute("d", "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.3 7.6-5.2 6a1 1 0 0 1-1.5.1l-2.4-2.4a1 1 0 1 1 1.4-1.4l1.6 1.6 4.5-5.3a1 1 0 0 1 1.6 1.4z");
+    iconoVerificado.appendChild(iconoPath);
+    titulo.append(textoTitulo, iconoVerificado);
 
     const boton = document.createElement("button");
     boton.type = "button";
