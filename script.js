@@ -1,10 +1,10 @@
 /**
- * Telegram Hub Honduras - Núcleo de Control Lógico Completo y Sincronizado
- * Arquitectura Estática Optimizada para Despliegues en GitHub Pages.
+ * Telegram Hub Honduras - Módulo del Controlador Lógico Unificado
+ * Configuración Sincronizada para Despliegues Estáticos en GitHub Pages.
  */
 
 // ============================================================================
-// 1. CONTROL DE CONFIRMACIÓN DE EDAD CON CLAVE EXCLUSIVA (ENCAPSULADO E INSTANTÁNEO)
+// 1. SISTEMA COMPACTO E INMUTABLE DE CONTROL DE EDAD (AGE GATE IIFE CLOSURE)
 // ============================================================================
 (function () {
     "use strict";
@@ -17,24 +17,18 @@
 
     function ocultarModalEdad() {
         const modal = obtenerModalEdad();
-
         if (!modal) return;
-
         modal.classList.add("oculto");
         modal.setAttribute("aria-hidden", "true");
-
         document.documentElement.classList.remove("edad-bloqueada");
         document.body.classList.remove("edad-bloqueada");
     }
 
     function mostrarModalEdad() {
         const modal = obtenerModalEdad();
-
         if (!modal) return;
-
         modal.classList.remove("oculto");
         modal.setAttribute("aria-hidden", "false");
-
         document.documentElement.classList.add("edad-bloqueada");
         document.body.classList.add("edad-bloqueada");
     }
@@ -51,20 +45,13 @@
         try {
             localStorage.setItem(CLAVE_EDAD, "true");
         } catch (error) {
-            console.warn(
-                "No se pudo guardar la confirmación de edad."
-            );
+            console.warn("No se pudo registrar la confirmación de edad en el almacenamiento local.");
         }
     }
 
     function inicializarControlEdad() {
-        const botonConfirmar = document.getElementById(
-            "btn-age-gate-confirmar"
-        );
-
-        const botonSalir = document.getElementById(
-            "btn-age-gate-salir"
-        );
+        const botonConfirmar = document.getElementById("btn-age-gate-confirmar");
+        const botonSalir = document.getElementById("btn-age-gate-salir");
 
         if (comprobarEdadConfirmada()) {
             ocultarModalEdad();
@@ -76,7 +63,6 @@
             botonConfirmar.addEventListener("click", function (event) {
                 event.preventDefault();
                 event.stopPropagation();
-
                 guardarEdadConfirmada();
                 ocultarModalEdad();
             });
@@ -85,29 +71,22 @@
         if (botonSalir) {
             botonSalir.addEventListener("click", function (event) {
                 event.preventDefault();
-
-                window.location.replace(
-                    "https://www.google.com/"
-                );
+                window.location.replace("https://www.google.com/");
             });
         }
     }
 
     if (document.readyState === "loading") {
-        document.addEventListener(
-            "DOMContentLoaded",
-            inicializarControlEdad,
-            { once: true }
-        );
+        document.addEventListener("DOMContentLoaded", inicializarControlEdad, { once: true });
     } else {
         inicializarControlEdad();
     }
 })();
 
 // ============================================================================
-// 2. CONFIGURACIÓN Y DECLARACIÓN DE CANALES OFICIALES (44 PERFILES EXACTOS)
+// 2. FUENTE OFICIAL DE CANALES (44 PERFILES ORDENADOS POR IDENTIFICADOR)
 // ============================================================================
-const IMAGEN_RESPALDO_FALLBACK = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='380' viewBox='0 0 300 380'><rect width='100%' height='100%' fill='%23141620'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%239ca3af'>Imagen no disponible</text></svg>";
+const IMAGEN_RESPALDO_FALLBACK = "./img/imagen-no-disponible.webp";
 
 const CANALES_DATOS = [
     { id: 1, nombre: "Brisna Reyes", popular: true, new: false, imagen: "1H4k6rbM3B1BWb4FI6ZlpZbfUB-0Xg3v_", enlace: "https://t.me/+C2dX4D28U244ZDZh" },
@@ -115,7 +94,6 @@ const CANALES_DATOS = [
     { id: 3, nombre: "Valeria Aguilar", popular: true, new: false, imagen: "1NwgfTAi0IvHpOqKSgpMFre9T_RfTB-Y3", enlace: "https://t.me/+A0xn0NVjVuRjNjYx" },
     { id: 4, nombre: "Desire Diaz", popular: true, new: false, imagen: "1B1-jKbJcO-9jvzU6_yEUrXiBhK0k3908", enlace: "https://t.me/+MmIkwb1PoMk0Nzgx" },
     { id: 5, nombre: "Step Reyes", popular: true, new: false, imagen: "1J6yXiUwuRxJWkNTk3cNp2VuMVqf1PpvE", enlace: "https://t.me/+H_am9c5lam00ZDgx" },
-    { id: 28, nombre: "Jacky Najera", popular: true, new: false, imagen: "1ym3eXcZv2MJ3hKw4O-hjHKvKUtLN8men", enlace: "https://t.me/+3g1sEONf2jozODlh" },
     { id: 6, nombre: "La Niche", popular: true, new: false, imagen: "1Pm-35B2KPfvdonKcCuYqdnQ9naI74kJ0", enlace: "https://t.me/+SrhaczXTjJs2ZmFh" },
     { id: 7, nombre: "Jelen Santos", popular: true, new: false, imagen: "11qgUGCUEfQX2U3cbTn4tq7bQxgRD7VbB", enlace: "https://t.me/+0EZ6euY5wYE2MWQx" },
     { id: 8, nombre: "Meylin Cardenas", popular: true, new: false, imagen: "1emzU7q1hYpqorUFWMwkHoThowqICXWB0", enlace: "https://t.me/+2P1Wb7MxgMxlNzIx" },
@@ -138,6 +116,7 @@ const CANALES_DATOS = [
     { id: 25, nombre: "Desire Garcia", popular: true, new: false, imagen: "1nyMPPPLuc5m9ZWaAH8JO3JP0FMYcvnE2", enlace: "https://t.me/+Pb8EX6-bmNRhMjcx" },
     { id: 26, nombre: "Majo Ramirez", popular: true, new: false, imagen: "1miHGg6iYw_S986RlMbC9r3VpBd-bMzGY", enlace: "https://t.me/+yyO2gTTDgWU1NDEx" },
     { id: 27, nombre: "La Queso", popular: true, new: false, imagen: "1EPng-lXa4QxPydW9s9Q18ptJatbJDhZL", enlace: "https://t.me/+h07etPuE9poxMjAx" },
+    { id: 28, nombre: "Jacky Najera", popular: true, new: false, imagen: "1ym3eXcZv2MJ3hKw4O-hjHKvKUtLN8men", enlace: "https://t.me/+3g1sEONf2jozODlh" },
     { id: 29, nombre: "Andy Flores", popular: true, new: false, imagen: "1dW53LhEh5FsiAHakEWsHVIxLRE6N7suZ", enlace: "https://t.me/+Ys4csoNCypU3MWMx" },
     { id: 30, nombre: "Vanessa Yuri", popular: true, new: false, imagen: "1XAMESKYx8FyuUCztcC5J1H303036lLn8", enlace: "https://t.me/+2WVL_7Q4igEzY2Qx" },
     { id: 31, nombre: "La Condesa", popular: true, new: false, imagen: "1FB5WlXNERO1V9k0W9XTlH4eMw6g7BNUW", enlace: "https://t.me/+g86KLMXR7As5MThh" },
@@ -160,43 +139,58 @@ const TEXTOS_LEGALES_FOOTER = {
     terminos: `<h5>1. Aceptación de Condiciones</h5><p>Al navegar por este directorio informativo, usted asume los presentes términos de uso. Si no concuerda con ellos, interrumpa la navegación de inmediato.</p><h5>2. Propósito del Portal</h5><p>Este sitio web opera únicamente como un índice digital organizado para facilitar la localización de canales de comunicación públicos disponibles en la red de Telegram.</p><h5>3. Exención de Responsabilidad</h5><p>El uso y consecuencias de las interacciones dentro de la aplicación de destino son responsabilidad exclusiva de cada internauta.</p>`,
     privacidad: `<h5>Políticas de Tratamiento y Privacidad</h5><p>Este portal estático no realiza capturas de datos personales, nombres, correos o direcciones IP mediante bases de datos.</p><p>Se utiliza únicamente la propiedad localStorage de su explorador con la única meta de recordar si ya validó su mayoría de edad, evitando la sobrecarga recurrente del interceptor inicial.</p><p>Al hacer clic en los accesos informativos, el visitante es redirigido a Telegram. Esta plataforma cuenta con sus propias políticas de privacidad, independientes de este directorio.</p>`,
     mayoridad: `<h5>Aviso Restrictivo de Edad (18+)</h5><p>Los canales compilados en este espacio informativo incluyen material enfocado y dirigido exclusivamente a personas adultas legalmente capacitadas.</p><p>Queda prohibido el ingreso de menores de edad. Mantenemos políticas estrictas de remoción de enlaces ante cualquier reporte verificado de contenidos no autorizados.</p>`,
-    reportar: `<h5>Tramitación de Reportes de Enlaces</h5><p>En caso de localizar un hipervínculo roto, caído o considerar que un canal indexado no cumple las reglas comunitarias, puede solicitar una auditoría preventiva.</p><p>Los reportes se evalúan manualmente en un plazo regular de 48 horas tras recibir la notificación formal vía los canales descritos en el apartado de Contacto.</p>`,
+    reportar: `<h5>Tramitación de Reportes de Enlaces</h5><p>En caso de localizar un hipervínculo roto, caído o considerar que un canal indexado no cumple las reglas de la comunidad, puede solicitar una auditoría preventiva.</p><p>Próximamente se habilitará un canal oficial institucional para la recepción sistemática de reportes y la posterior verificación de enlaces del directorio.</p>`,
     eliminacion: `<h5>Solicitudes de Exclusión Directa (DMCA)</h5><p>Se respeta plenamente el derecho de autor y de imagen de todos los creadores.</p><p>Cualquier titular o apoderado legal acreditado puede demandar la remoción inmediata de un perfil, enlace o fotografía del directorio. La exclusión se ejecuta de forma expedita tras recibir la validación formal.</p>`,
-    contacto: `<h5>Canales de Soporte y Comunicación</h5><p>Para notificaciones administrativas, reportes de enlaces fuera de servicio o solicitudes de baja de perfiles, comuníquese directamente a través de nuestro soporte técnico en el grupo raíz independiente de Telegram Honduras.</p>`
+    contacto: `<h5>Canal de Soporte de la Plataforma</h5><p>Para consultas administrativas o solicitudes de baja de perfiles, próximamente se habilitará un canal oficial centralizado para la atención de requerimientos informativos.</p>`
 };
 
 // ============================================================================
-// 3. ESTADO GENERAL DE FILTROS Y BUSQUEDA
+// 3. VARIABLES GENERALES DEL ENTORNO DE FILTRADO
 // ============================================================================
+let canalSeleccionadoTelegram = null;
 let categoriaActiva = "todas";
 let busquedaFiltroTexto = "";
 let debounceTimerId = null;
 
 // ============================================================================
-// 4. INICIALIZADOR COMPLEMENTARIO DEL SISTEMA GENERAL
+// 4. INICIALIZADOR GENERAL DEL SISTEMA
 // ============================================================================
 document.addEventListener("DOMContentLoaded", () => {
+    actualizarAñoFooter();
     vincularListenersInterfazCompleta();
     activarProteccionVisualImagenes();
     inyectarCargaSkeletons();
 });
 
-// Sincronización estricta de IDs
-function vincularListenersInterfazCompleta() {
-    // Desplazamiento Suave (Scroll Smooth)
-    document.getElementById("btn-scroll-directorio")?.addEventListener("click", () => {
-        document.getElementById("directorio-seccion")?.scrollIntoView({ behavior: "smooth" });
-    });
+function actualizarAñoFooter() {
+    const elemento = document.getElementById("auto-year");
+    if (elemento) {
+        elemento.textContent = new Date().getFullYear();
+    }
+}
 
-    // Control de Entrada del Buscador con Debounce de 200ms
+// Función Normalizadora Exigida en el punto 9 (Ignora Acentos y Mayúsculas)
+function normalizarTexto(texto) {
+    return String(texto)
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim();
+}
+
+// ============================================================================
+// 5. OBSERVADORES DE INTERFAZ Y DELEGACIÓN DE EVENTOS
+// ============================================================================
+function vincularListenersInterfazCompleta() {
     const inputBuscar = document.getElementById("buscador-input");
     const btnClearInline = document.getElementById("btn-clear-input");
 
+    // Buscador interactivo
     inputBuscar?.addEventListener("input", (e) => {
         clearTimeout(debounceTimerId);
-        busquedaFiltroTexto = e.target.value.toLowerCase().trim();
+        busquedaFiltroTexto = normalizarTexto(e.target.value);
 
-        if (busquedaFiltroTexto.length > 0) {
+        if (e.target.value.trim().length > 0) {
             btnClearInline?.classList.remove("oculto");
         } else {
             btnClearInline?.classList.add("oculto");
@@ -207,7 +201,7 @@ function vincularListenersInterfazCompleta() {
         }, 200);
     });
 
-    // Botón X de limpieza del buscador
+    // Botón X interactivo del campo de búsqueda
     btnClearInline?.addEventListener("click", () => {
         if (inputBuscar) inputBuscar.value = "";
         busquedaFiltroTexto = "";
@@ -216,7 +210,7 @@ function vincularListenersInterfazCompleta() {
         inputBuscar?.focus();
     });
 
-    // Controladores de Categorías Estáticas
+    // Filtrado por botones de categorías estáticas
     const botonesCategorias = document.querySelectorAll("#contenedor-botones-categorias .btn-categoria");
     botonesCategorias.forEach(btn => {
         btn.addEventListener("click", (e) => {
@@ -228,15 +222,26 @@ function vincularListenersInterfazCompleta() {
         });
     });
 
-    // Botón de restablecimiento en estado vacío
+    // Acción del botón corregida en punto 8 ("Ver todos los canales")
     document.getElementById("btn-limpiar-busqueda-vacio")?.addEventListener("click", () => {
         if (inputBuscar) inputBuscar.value = "";
         busquedaFiltroTexto = "";
         if (btnClearInline) btnClearInline.classList.add("oculto");
+        
+        categoriaActiva = "todas";
+        
+        botonesCategorias.forEach(b => {
+            if (b.getAttribute("data-categoria") === "todas") {
+                b.classList.add("activo");
+            } else {
+                b.classList.remove("activo");
+            }
+        });
+
         filtrarYProcesarCanales();
     });
 
-    // DELEGACIÓN DE EVENTOS CRÍTICA: Control de botones de tarjetas dinámicas
+    // DELEGACIÓN DE EVENTOS EN #GRID-CANALES PARA PREVENIR COMPORTAMIENTOS DUPLICADOS
     document.getElementById("grid-canales")?.addEventListener("click", (e) => {
         const targetBoton = e.target.closest(".btn-telegram-canal");
         if (!targetBoton) return;
@@ -245,7 +250,7 @@ function vincularListenersInterfazCompleta() {
         abrirModalConfirmacionTelegram(idCanal);
     });
 
-    // Interceptores y cierres del modal unificado de Telegram
+    // Eventos de control de modales de Telegram
     document.getElementById("btn-modal-cancelar-telegram")?.addEventListener("click", cerrarModalTelegram);
     document.getElementById("btn-modal-confirmar-telegram")?.addEventListener("click", continuarAlCanalTelegram);
     
@@ -254,29 +259,21 @@ function vincularListenersInterfazCompleta() {
         if (e.target === backdropTelegram) cerrarModalTelegram();
     });
 
-    window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            cerrarModalTelegram();
-            document.getElementById("modal-textos-legales-footer")?.classList.add("oculto");
-        }
-    });
-
-    // Cierre del modal de textos del footer
-    document.getElementById("btn-modal-cerrar-legal")?.addEventListener("click", () => {
-        document.getElementById("modal-textos-legales-footer")?.classList.add("oculto");
-    });
-
-    // Enlaces del Footer a modales dinámicos
+    // Vinculación de modales legales del footer
     document.querySelectorAll(".btn-footer-link").forEach(btn => {
         btn.addEventListener("click", (e) => {
             const claveLegal = e.currentTarget.getAttribute("data-modal-legal");
             abrirModalTextosLegalesFooter(claveLegal);
         });
     });
+
+    document.getElementById("btn-modal-cerrar-legal")?.addEventListener("click", () => {
+        document.getElementById("modal-textos-legales-footer")?.classList.add("oculto");
+    });
 }
 
 // ============================================================================
-// 5. CARGA INICIAL CON TARJETAS SKELETONS ANIMADAS
+// 6. CARGA DE ESQUELETOS (SKELETON ANIMATION LAYERS)
 // ============================================================================
 function inyectarCargaSkeletons() {
     const grid = document.getElementById("grid-canales");
@@ -304,12 +301,12 @@ function inyectarCargaSkeletons() {
 }
 
 // ============================================================================
-// 6. FILTRADO CON MANEJO DE ERRORES EXIGIDO (TRY...CATCH)
+// 7. PROCESAMIENTO Y MANEJO DE ERRORES GLOBAL (TRY...CATCH)
 // ============================================================================
 function filtrarYProcesarCanales() {
     try {
         let canalesFiltrados = CANALES_DATOS.filter(canal => {
-            const coincideBuscador = canal.nombre.toLowerCase().includes(busquedaFiltroTexto);
+            const coincideBuscador = normalizarTexto(canal.nombre).includes(busquedaFiltroTexto);
             
             let coincideCategoria = false;
             if (categoriaActiva === "todas") {
@@ -330,7 +327,7 @@ function filtrarYProcesarCanales() {
 }
 
 // ============================================================================
-// 7. RENDERIZADO VISUAL DE LAS TARJETAS PREMIUM DE CANALES
+// 8. CONSTRUCCIÓN DE TARJETAS REALES DE PORTADAS EN EL GRID
 // ============================================================================
 function renderizarGridCanalesReales(listaCanales) {
     const grid = document.getElementById("grid-canales");
@@ -368,7 +365,8 @@ function renderizarGridCanalesReales(listaCanales) {
     }
 
     listaCanales.forEach(canal => {
-        const urlFotoDirecta = `https://lh3.googleusercontent.com/d/$$$${canal.imagen}=w500-h700-p`;
+        // Enlace estructurado de forma exacta conforme al punto 4
+        const urlFotoDirecta = `https://lh3.googleusercontent.com/d/$${canal.imagen}=w500-h700-p`;
         
         let htmlBadges = "";
         if (canal.popular) htmlBadges += `<div class="badge-categoria badge-popular">MÁS BUSCADA 🔥</div>`;
@@ -411,6 +409,9 @@ function manejadorImagenRota(elementoImg) {
     elementoImg.src = IMAGEN_RESPALDO_FALLBACK;
 }
 
+// ============================================================================
+// 9. ARRASTRE Y CLIC DERECHO BLOQUEADO EN IMÁGENES PROTEGIDAS
+// ============================================================================
 function activarProteccionVisualImagenes() {
     const gridCanales = document.getElementById("grid-canales");
     if (!gridCanales) return;
@@ -428,6 +429,9 @@ function activarProteccionVisualImagenes() {
     });
 }
 
+// ============================================================================
+// 10. MODAL INTERNO CONFIRMACIÓN DE REDIRECCIÓN TELEGRAM (PUNTOS 5 Y 6)
+// ============================================================================
 function abrirModalConfirmacionTelegram(idCanal) {
     const canal = CANALES_DATOS.find(c => c.id === idCanal);
     if (!canal) return;
